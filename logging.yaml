@@ -1,0 +1,40 @@
+version: 1
+
+disable_existing_loggers: False
+
+formatters:
+    Brief:
+        format: '%(message)s'
+    Detailed:
+        format: "%(asctime)s - [%(levelname)s] In %(filename)s at line %(lineno)s:\n%(message)s\n"
+    Custom:
+        (): rocs.formatters.MixedFormatter
+        
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: Custom
+        stream: ext://sys.stdout
+
+    info_file_handler:
+        class: logging.FileHandler
+        level: DEBUG
+        formatter: Custom
+        filename: info.log
+        encoding: utf8
+        mode: w
+        
+    error_file_handler:
+        class: logging.FileHandler
+        level: ERROR
+        formatter: Detailed
+        filename: errors.log
+        encoding: utf8
+        mode: w
+
+root:
+    level: INFO
+    handlers: [error_file_handler, console, info_file_handler]
+    propagate: no

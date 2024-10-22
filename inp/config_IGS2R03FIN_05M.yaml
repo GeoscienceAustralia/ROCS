@@ -1,0 +1,206 @@
+# Configuration file in YAML format
+#
+#
+# Processing configs
+process:
+  
+  # verbose mode (normal/debugger)
+  verbose: normal
+
+# Orbit combination configs
+orbits:
+
+  # Analysis center contributions
+  ac_contribs:
+
+    # weighted centers:
+    weighted:
+      systems:
+        COD: [G,R,E]
+        ESA: [G,R,E]
+        GFZ: [G,R,E]
+        GRG: [G,R,E]
+        JPL: [G,R,E]
+        MIT: [G,R,E]
+        NGS: [G,R,E]
+        TUG: [G,R,E]
+        WHU: [G,R,E]
+      prns:
+      svns:
+
+    # unweighted centers (for comparison only)
+    unweighted:
+      systems:
+        IG2: [G]
+        IG3: [G]
+        IGF: [G]
+        IGQ: [G,R,E]
+      prns:
+      svns:
+
+    # excluded centers
+    excluded:
+      systems:
+      prns:
+      svns:
+
+  ac_acronyms:
+      COD: "Center for Orbit Determination in Europe (CODE)"
+      ESA: "European Space Agency"
+      GFZ: "GeoForschungsZentrum Potsdam"
+      GRG: "Centre National d'Etudes Spatiales (CNES/CLS)"
+      JPL: "Jet Propulsion Laboratory"
+      MIT: "Massachusetts Institute of Technology"
+      NGS: "NOAA/National Geodetic Survey"
+      TUG: "Graz University of Technology"
+      WHU: "Wuhan University"
+      IGF: "IGS final operational orbit product"
+      IG2: "IGS second reprocessing (repro2) orbit product"
+      IG3: "IGS repro3 GPS-only orbit product by legacy software"
+      IGQ: "IGS repro3 multi-GNSS 15-minute orbit product"
+
+  # solution (ULT/RAP/FIN)
+  sol_id: FIN
+
+  # Campaign/Project specification
+  camp_id: R03
+
+  # Combination name/abbreviation (3 characters)
+  cmb_name: IGS
+
+  # Combination version/solution identifier (0 to 9)
+  vid: 2
+
+  # sampling rate (None or an integer in seconds)
+  sampling: 300
+
+  # root directory for orbit submissions
+  subm_rootdir: /data/repro3/ac_subm_repro3
+
+  # root directory for saving the products
+  prod_rootdir: /data/repro3/products/IGS2R03FIN_05M
+
+  # path to satellite metadata file
+  sat_metadata_file: /data/repro3/metadata/igs_satellite_metadata.snx
+
+  # Earth orientation paramaters (EOP) source format
+  # (IERS_EOP14_C04/IERS_EOP_rapid/IGS_ERP2/None)
+  eop_format: IGS_ERP2
+
+  # path to the EOP data
+  eop_file: /data/repro3/metadata/igs_repro3.erp
+
+  # center weighting method (global/by_constellation/by_block/by_sat)
+  cen_wht_method: by_sat
+
+  # satellite weighting method (RMS_L1)
+  sat_wht_method: RMS_L1
+
+  # Transform orbits to a same reference frame?
+  # [Translations,Rotations,Scale]
+  rf_align: [False,True,False]
+
+  # Root directory for reference frame combination summary files
+  # Needed for reference frame alignment
+  rf_rootdir: /data/repro3/sinex
+
+  # Reference frame summary file name identifier
+  rf_name: IGS1R03SNX
+
+  # UT1 differences applied as Z rotations
+  # The ERP apriori and observed files for any center listed below must be
+  # presented at rf_rootdir specified above with the long filename formats
+  # {CEN}{V}{SOL}APR_{YYYYDDDHHMM}_{LEN}_{SMP}_ERP.ERP and
+  # {CEN}{V}{SOL}OBS_{YYYYDDDHHMM}_{LEN}_{SMP}_ERP.ERP
+  ut1_rot: [MIT]
+  # format of the centers EOP file used for the ut1 corrections
+  ut1_eop_format : IGS_ERP2
+
+  # remove DV maneuvering satellites
+  rm_dv: True
+
+  # nanu summary file
+  nanu_sumfile: /data/repro3/metadata/nanus_sum_1997_2020
+
+  # exception for removing DV maneuvering satellites
+  no_rm_dv: [COD]
+
+  # outlier removal (assess) settings
+  assess:
+
+    # satellite rms test (auto/manual/strict)
+    sat_rms_tst: auto
+
+    # coefficient for auto satellite rms test
+    coef_sat: 470.0
+
+    # threshold for manual satellite rms test for each satellite system (mm)
+    thresh_sat:
+      G: 15.0
+      R: 25.0
+      E: 15.0
+      C: 50.0
+      J: 100.0
+
+    # maximum number of outlier satellite rms for a center in order to keep
+    # being weighted
+    max_high_satrms: 5
+
+    # transformation parameters test (auto/manual/strict)
+    trn_tst: strict
+
+    # manual transformation thresholds for translation (mm), rotation (mas)
+    # and scale (ppb)
+    thresh_trn: [null,0.3,null]
+
+    # test for minimum number of centers for each satellite (strict/eased)
+    numcen_tst: eased
+
+    # minimum number of centers for each satellite
+    min_numcen: 1
+
+    # maximum number of iterations for outlier removal
+    max_iter: 100
+
+  # SP3 header information
+  sp3_header:
+
+    # coordinate system
+    coord_sys: IGSR3
+
+    # information to put into the comments
+
+    # combination type
+    cmb_type: REPRO3
+
+    # antex file
+    antex: igsR3_2135
+
+    # ocean tide model
+    oload: FES2014b
+
+
+# clock combination configs
+clocks:
+
+  # Analysis center contributions
+  ac_contribs:
+
+    # weighted centers:
+    weighted:
+      systems:
+      prns:
+      svns:
+
+    # unweighted centers (for comparison only)
+    unweighted:
+      systems:
+      prns:
+      svns:
+
+    # excluded centers
+    excluded:
+      systems:
+      prns:
+      svns:
+
