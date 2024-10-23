@@ -148,13 +148,15 @@ class Config:
 
             # Try to open the yaml file
             try:
-                stream = open(config_yaml,'r')
+                with open(config_yaml, 'r') as stream:
+                    yaml_parsed = yaml.load(stream, Loader=yaml.SafeLoader)
             except IOError:
                 logger.error(f"The configuratoin yaml file {config_yaml} is"
                             f" not accessible!",stack_info=True)
                 raise IOError(f"File {config_yaml} not accessible!")
-            else:
-                yaml_parsed = yaml.load(stream)
+            except yaml.YAMLError as e:
+                logger.error(f"Error loading YAML file {config_yaml}: {e}", stack_info=True)
+                raise
 
             # update the configurations
             config = update(config,yaml_parsed)
