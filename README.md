@@ -3,7 +3,7 @@
 
 ## Overview
 
-The *Robust Orbit Combination Software - ROCS* is a processing package developed in Python 3 to combine orbits (and in future clocks) from different analysis centres. The algoithm used by the software is mainly based on the legacy version of the IGS ACC combination software which was developed in Fortran with Perl and Shell Scripts by Astronomical Institute, University of Bern, Delft University of Technology, and Geodetic Survey of Canada, NRCan (see Beutler, Kouba and Springer: Combining the orbits of the IGS Analysis Centers; Bulletin Geodesique; 1995).
+The *Robust Orbit Combination Software - ROCS* is a GNSS processing package developed in Python 3 to combine orbits (and in future clocks) from different International GNSS Service (IGS) analysis centres [https://igs.org/acc/]. The algorithm used by the software is mainly based on the legacy version of the IGS Analysis Centre Coordinator (ACC) combination software which was developed in Fortran with Perl and Shell Scripts by the Astronomical Institute, University of Bern, Delft University of Technology, and Geodetic Survey of Canada, NRCan (see Beutler, Kouba and Springer: Combining the orbits of the IGS Analysis Centers; Bulletin Geodesique; 1995).
 
 This modern implementation of the combination software enables the combination of multi-GNSS orbits, and incorporates more complex techniques for weighting of the Analysis Centre solutions for different constellations/blocks/satellites. For details of the processing algorithms, please refer to: Zajdel, R., Masoumi, S., Sośnica, K. et al. Combination and SLR validation of IGS Repro3 orbits for ITRF2020. J Geod 97, 87 (2023). https://doi.org/10.1007/s00190-023-01777-3.
 
