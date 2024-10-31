@@ -61,7 +61,7 @@ To be able to run the software from anywhere on your system, add the package to 
 export PYTHONPATH=/path/to/your/ROCS/:$PYTHONPATH
 ```
 
-It is recommended that you add the above line to your shell initializiation file (```~/.bashrc```, ```~/.cshrc```, etc.) so you do not need to run this everytime you start up the sell.
+It is recommended that you add the above line to your shell initialization file (```~/.bashrc```, ```~/.cshrc```, etc.) so you do not need to run this every time you start up the sell.
 
 
 ## How to run
@@ -80,6 +80,25 @@ python3 -m rocs <WWWW> <D> <H> -c </path/to/your/config.yaml>
 ```
 
 where ```<WWWW>``` is GPS week, ```<D>``` is day of week (for the starting epoch of the combination), ```<H>``` is hour of the day (optional, only required for ultra-rapid combination), and ```</path/to/your/config.yaml>``` is the full path to your configuration YAML file.
+
+In the ```examples``` folder, there are two different scenario examples, one for final orbits and one for ultra-rapid orbits, along with the required input data, as well as the expected outputs in the ```products``` folder. You may want to use these examples to ensure you retrieve the expected outcomes.
+
+To run the example of a final orbit combination, run the below commands:
+
+```
+cd examples/final/
+python3 -m rocs 2332 4 -c ./inp/config_example_final.yaml
+```
+
+Similarly, to run the ultra-rapid example:
+
+```
+cd examples/ultra/
+python3 -m rocs 2332 4 18 -c ./inp/config_example_ultra.yaml
+```
+
+The combined orbits and summary files in the ```products``` directory of the above examples, should be identical to the pre-combined files in the ```products_expected``` directory.
+Note the above are just example scenarios, and that you may want to change the configurations based on your particular needs.
 
 Running the package with the ```--help``` argument will show a simple help option:
 

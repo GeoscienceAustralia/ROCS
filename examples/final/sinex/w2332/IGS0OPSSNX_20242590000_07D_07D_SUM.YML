@@ -1,0 +1,446 @@
+#----------------------------------------------------------
+# IGS combination of daily AC SINEX solutions for week 2332
+#----------------------------------------------------------
+
+authors: Anne Duret, Paul Rebischung
+contact: igs-rf@ign.fr
+
+# Daily AC solutions:
+ac:
+  - {name: cod, file: 'COD0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: emr, file: 'EMR0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: esa, file: 'ESA0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: gfz, file: 'GFZ0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: grg, file: 'GRG0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: jgx, file: 'JGX0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: jpl, file: 'JPL0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: mit, file: 'MIT0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: ngs, file: 'NGS0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+  - {name: sio, file: 'SIO0OPSFIN_${yyyy}${doy}0000_01D_01D_SOL.SNX', weighted: True}
+
+# Daily combined solutions:
+igs: {file: 'IGS0OPSSNX_${yyyy}${doy}0000_01D_01D_SOL.SNX'}
+
+# IERS Bulletin A:
+bua: {file: finals2000A.data}
+
+
+
+# 1) Main combination statistics
+#-------------------------------
+# - nsta   = number of stations (after rejection of outliers)
+# - nrf    = number of usable IGSR3 stations
+# - ncore  = number of core stations used for alignament to IGSR3
+# - sqrtvf = square root of estimated variance factor
+# - wrms   = WRMS of "AC - igs" station position residuals (unit: mm, frame: ENH)
+# - sigm   = median of station position formal errors (unit: mm, frame: ENH)
+
+stats:
+  -
+    - {ac: cod, day: 0, nsta:   259, nrf:   125, ncore:    42, sqrtvf:   0.006943, wrms: [    1.330,    1.131,    3.629], sigm: [    1.255,    1.278,    4.152]}
+    - {ac: cod, day: 1, nsta:   259, nrf:   122, ncore:    42, sqrtvf:   0.007432, wrms: [    1.470,    1.366,    3.356], sigm: [    1.352,    1.358,    4.418]}
+    - {ac: cod, day: 2, nsta:   258, nrf:   119, ncore:    42, sqrtvf:   0.007264, wrms: [    1.368,    1.323,    3.709], sigm: [    1.356,    1.351,    4.478]}
+    - {ac: cod, day: 3, nsta:   257, nrf:   119, ncore:    42, sqrtvf:   0.007209, wrms: [    1.455,    1.300,    3.498], sigm: [    1.297,    1.317,    4.386]}
+    - {ac: cod, day: 4, nsta:   257, nrf:   119, ncore:    42, sqrtvf:   0.007326, wrms: [    1.279,    1.403,    3.584], sigm: [    1.353,    1.358,    4.411]}
+    - {ac: cod, day: 5, nsta:   256, nrf:   121, ncore:    42, sqrtvf:   0.006979, wrms: [    1.257,    1.453,    3.187], sigm: [    1.262,    1.276,    4.152]}
+    - {ac: cod, day: 6, nsta:   256, nrf:   121, ncore:    42, sqrtvf:   0.006932, wrms: [    1.145,    1.228,    3.289], sigm: [    1.266,    1.269,    4.157]}
+  -
+    - {ac: emr, day: 0, nsta:   115, nrf:    73, ncore:    39, sqrtvf:   1.145417, wrms: [    1.175,    1.191,    3.395], sigm: [    1.113,    1.184,    3.756]}
+    - {ac: emr, day: 1, nsta:   113, nrf:    71, ncore:    38, sqrtvf:   1.051764, wrms: [    0.863,    1.403,    3.464], sigm: [    1.025,    1.128,    3.535]}
+    - {ac: emr, day: 2, nsta:   108, nrf:    68, ncore:    37, sqrtvf:   1.218990, wrms: [    0.873,    1.248,    4.298], sigm: [    1.263,    1.364,    4.196]}
+    - {ac: emr, day: 3, nsta:   115, nrf:    74, ncore:    41, sqrtvf:   1.118885, wrms: [    1.031,    1.320,    3.960], sigm: [    1.100,    1.205,    3.878]}
+    - {ac: emr, day: 4, nsta:   111, nrf:    72, ncore:    40, sqrtvf:   1.195694, wrms: [    1.180,    1.489,    3.840], sigm: [    1.201,    1.290,    4.109]}
+    - {ac: emr, day: 5, nsta:   112, nrf:    74, ncore:    40, sqrtvf:   1.223904, wrms: [    1.184,    1.560,    4.203], sigm: [    1.135,    1.265,    4.010]}
+    - {ac: emr, day: 6, nsta:   112, nrf:    69, ncore:    37, sqrtvf:   1.174156, wrms: [    1.143,    1.285,    3.952], sigm: [    1.117,    1.249,    3.879]}
+  -
+    - {ac: esa, day: 0, nsta:   150, nrf:    83, ncore:    41, sqrtvf:   1.193259, wrms: [    0.903,    1.156,    3.370], sigm: [    1.045,    1.032,    3.541]}
+    - {ac: esa, day: 1, nsta:   150, nrf:    80, ncore:    41, sqrtvf:   1.182393, wrms: [    0.914,    1.076,    3.224], sigm: [    1.028,    1.030,    3.504]}
+    - {ac: esa, day: 2, nsta:   150, nrf:    83, ncore:    40, sqrtvf:   1.224699, wrms: [    0.851,    1.039,    3.578], sigm: [    1.073,    1.076,    3.689]}
+    - {ac: esa, day: 3, nsta:   150, nrf:    84, ncore:    41, sqrtvf:   1.133010, wrms: [    0.621,    0.982,    3.416], sigm: [    0.994,    0.994,    3.411]}
+    - {ac: esa, day: 4, nsta:   150, nrf:    85, ncore:    41, sqrtvf:   1.280981, wrms: [    0.819,    1.081,    3.753], sigm: [    1.123,    1.121,    3.863]}
+    - {ac: esa, day: 5, nsta:   150, nrf:    83, ncore:    40, sqrtvf:   1.227565, wrms: [    0.710,    1.174,    3.561], sigm: [    1.081,    1.074,    3.681]}
+    - {ac: esa, day: 6, nsta:   150, nrf:    86, ncore:    40, sqrtvf:   1.195110, wrms: [    0.692,    1.154,    3.534], sigm: [    1.052,    1.041,    3.610]}
+  -
+    - {ac: gfz, day: 0, nsta:   121, nrf:    71, ncore:    41, sqrtvf:   3.082635, wrms: [    1.010,    0.918,    2.781], sigm: [    1.106,    1.055,    3.450]}
+    - {ac: gfz, day: 1, nsta:   123, nrf:    69, ncore:    41, sqrtvf:   3.176540, wrms: [    1.111,    0.838,    2.475], sigm: [    1.054,    1.012,    3.320]}
+    - {ac: gfz, day: 2, nsta:   124, nrf:    72, ncore:    41, sqrtvf:   3.099370, wrms: [    1.076,    0.904,    2.699], sigm: [    1.063,    1.024,    3.374]}
+    - {ac: gfz, day: 3, nsta:   125, nrf:    69, ncore:    41, sqrtvf:   2.469037, wrms: [    1.166,    1.027,    2.921], sigm: [    1.123,    1.068,    3.522]}
+    - {ac: gfz, day: 4, nsta:   124, nrf:    71, ncore:    40, sqrtvf:   2.793378, wrms: [    1.051,    1.005,    2.902], sigm: [    1.199,    1.163,    3.833]}
+    - {ac: gfz, day: 5, nsta:   126, nrf:    71, ncore:    40, sqrtvf:   3.067960, wrms: [    1.042,    0.968,    2.849], sigm: [    1.019,    0.970,    3.188]}
+    - {ac: gfz, day: 6, nsta:   123, nrf:    70, ncore:    39, sqrtvf:   2.542851, wrms: [    1.041,    0.912,    3.134], sigm: [    1.109,    1.058,    3.476]}
+  -
+    - {ac: grg, day: 0, nsta:   123, nrf:    63, ncore:    38, sqrtvf:   3.648819, wrms: [    1.211,    1.126,    2.449], sigm: [    1.040,    1.132,    3.472]}
+    - {ac: grg, day: 1, nsta:   124, nrf:    63, ncore:    39, sqrtvf:   3.319191, wrms: [    0.965,    1.156,    2.388], sigm: [    0.962,    1.045,    3.261]}
+    - {ac: grg, day: 2, nsta:   124, nrf:    66, ncore:    39, sqrtvf:   3.597822, wrms: [    1.083,    1.178,    2.449], sigm: [    1.047,    1.143,    3.585]}
+    - {ac: grg, day: 3, nsta:   123, nrf:    63, ncore:    39, sqrtvf:   3.492407, wrms: [    1.016,    1.123,    2.662], sigm: [    1.018,    1.077,    3.448]}
+    - {ac: grg, day: 4, nsta:   123, nrf:    60, ncore:    38, sqrtvf:   3.372834, wrms: [    0.856,    1.249,    2.324], sigm: [    0.978,    1.058,    3.302]}
+    - {ac: grg, day: 5, nsta:   119, nrf:    56, ncore:    37, sqrtvf:   3.812899, wrms: [    1.113,    1.226,    2.450], sigm: [    1.095,    1.188,    3.688]}
+    - {ac: grg, day: 6, nsta:   121, nrf:    58, ncore:    37, sqrtvf:   3.631522, wrms: [    1.097,    1.308,    2.413], sigm: [    1.026,    1.111,    3.483]}
+  -
+    - {ac: jgx, day: 0, nsta:   164, nrf:    97, ncore:    38, sqrtvf:   3.655399, wrms: [    0.877,    1.643,    3.247], sigm: [    1.385,    1.221,    4.100]}
+    - {ac: jgx, day: 1, nsta:   163, nrf:    98, ncore:    38, sqrtvf:   3.361884, wrms: [    1.016,    1.483,    3.169], sigm: [    1.279,    1.136,    3.858]}
+    - {ac: jgx, day: 2, nsta:   164, nrf:    98, ncore:    38, sqrtvf:   3.636205, wrms: [    0.999,    1.918,    3.460], sigm: [    1.453,    1.294,    4.378]}
+    - {ac: jgx, day: 3, nsta:   161, nrf:    97, ncore:    38, sqrtvf:   3.986698, wrms: [    0.848,    1.855,    3.332], sigm: [    1.495,    1.355,    4.592]}
+    - {ac: jgx, day: 4, nsta:   162, nrf:    96, ncore:    38, sqrtvf:   3.934071, wrms: [    1.329,    2.047,    3.400], sigm: [    1.512,    1.287,    4.578]}
+    - {ac: jgx, day: 5, nsta:   162, nrf:    96, ncore:    38, sqrtvf:   3.806585, wrms: [    0.868,    1.729,    3.352], sigm: [    1.370,    1.228,    4.184]}
+    - {ac: jgx, day: 6, nsta:   162, nrf:    96, ncore:    38, sqrtvf:   3.910128, wrms: [    0.981,    1.607,    3.273], sigm: [    1.438,    1.279,    4.407]}
+  -
+    - {ac: jpl, day: 0, nsta:   120, nrf:    69, ncore:    42, sqrtvf:   1.098335, wrms: [    0.614,    0.567,    2.361], sigm: [    0.760,    0.768,    2.588]}
+    - {ac: jpl, day: 1, nsta:   120, nrf:    65, ncore:    42, sqrtvf:   1.200802, wrms: [    0.703,    0.673,    2.344], sigm: [    0.827,    0.842,    2.818]}
+    - {ac: jpl, day: 2, nsta:   120, nrf:    63, ncore:    42, sqrtvf:   1.349130, wrms: [    0.904,    0.746,    2.301], sigm: [    0.870,    0.875,    2.965]}
+    - {ac: jpl, day: 3, nsta:   120, nrf:    63, ncore:    42, sqrtvf:   1.287122, wrms: [    0.806,    0.734,    2.506], sigm: [    0.914,    0.930,    3.217]}
+    - {ac: jpl, day: 4, nsta:   120, nrf:    67, ncore:    43, sqrtvf:   1.313632, wrms: [    0.951,    0.863,    2.519], sigm: [    0.950,    0.957,    3.240]}
+    - {ac: jpl, day: 5, nsta:   120, nrf:    65, ncore:    42, sqrtvf:   1.124101, wrms: [    0.694,    0.645,    2.020], sigm: [    0.777,    0.787,    2.685]}
+    - {ac: jpl, day: 6, nsta:   120, nrf:    67, ncore:    42, sqrtvf:   1.235400, wrms: [    0.877,    0.729,    2.582], sigm: [    0.869,    0.876,    3.018]}
+  -
+    - {ac: mit, day: 0, nsta:   344, nrf:   146, ncore:    48, sqrtvf:   0.825609, wrms: [    1.105,    1.119,    3.140], sigm: [    1.459,    1.367,    4.279]}
+    - {ac: mit, day: 1, nsta:   348, nrf:   146, ncore:    48, sqrtvf:   0.911474, wrms: [    1.070,    1.072,    3.125], sigm: [    1.537,    1.484,    4.695]}
+    - {ac: mit, day: 2, nsta:   353, nrf:   139, ncore:    46, sqrtvf:   0.884400, wrms: [    1.133,    1.064,    3.250], sigm: [    1.551,    1.556,    4.732]}
+    - {ac: mit, day: 3, nsta:   351, nrf:   147, ncore:    48, sqrtvf:   0.871414, wrms: [    1.394,    1.291,    3.464], sigm: [    1.545,    1.506,    4.677]}
+    - {ac: mit, day: 4, nsta:   347, nrf:   146, ncore:    48, sqrtvf:   0.818535, wrms: [    1.058,    1.242,    2.955], sigm: [    1.404,    1.375,    4.217]}
+    - {ac: mit, day: 5, nsta:   347, nrf:   146, ncore:    47, sqrtvf:   0.861790, wrms: [    1.070,    1.029,    3.090], sigm: [    1.483,    1.436,    4.444]}
+    - {ac: mit, day: 6, nsta:   347, nrf:   147, ncore:    48, sqrtvf:   0.777906, wrms: [    0.944,    1.095,    2.800], sigm: [    1.307,    1.267,    3.998]}
+  -
+    - {ac: ngs, day: 0, nsta:   274, nrf:   136, ncore:    41, sqrtvf:   9.141673, wrms: [    1.727,    1.801,    4.561], sigm: [    1.439,    1.529,    4.637]}
+    - {ac: ngs, day: 1, nsta:   275, nrf:   141, ncore:    45, sqrtvf:   9.047151, wrms: [    1.671,    1.747,    4.258], sigm: [    1.382,    1.495,    4.547]}
+    - {ac: ngs, day: 2, nsta:   269, nrf:   141, ncore:    45, sqrtvf:   9.127214, wrms: [    1.603,    1.743,    3.796], sigm: [    1.433,    1.573,    4.798]}
+    - {ac: ngs, day: 3, nsta:   269, nrf:   140, ncore:    45, sqrtvf:   8.569167, wrms: [    1.397,    1.400,    3.806], sigm: [    1.342,    1.444,    4.372]}
+    - {ac: ngs, day: 4, nsta:   271, nrf:   142, ncore:    46, sqrtvf:   9.099892, wrms: [    1.641,    1.683,    4.445], sigm: [    1.429,    1.559,    4.735]}
+    - {ac: ngs, day: 5, nsta:   271, nrf:   138, ncore:    45, sqrtvf:   8.944854, wrms: [    1.495,    2.036,    4.152], sigm: [    1.402,    1.467,    4.511]}
+    - {ac: ngs, day: 6, nsta:   270, nrf:   135, ncore:    45, sqrtvf:   8.610118, wrms: [    1.602,    1.412,    3.535], sigm: [    1.356,    1.426,    4.358]}
+  -
+    - {ac: sio, day: 0, nsta:   333, nrf:   142, ncore:    47, sqrtvf:   0.600643, wrms: [    1.816,    2.066,    4.111], sigm: [    2.110,    1.908,    4.495]}
+    - {ac: sio, day: 1, nsta:   334, nrf:   141, ncore:    47, sqrtvf:   0.625110, wrms: [    1.800,    2.178,    4.187], sigm: [    2.177,    1.990,    4.646]}
+    - {ac: sio, day: 2, nsta:   333, nrf:   148, ncore:    46, sqrtvf:   0.595031, wrms: [    1.585,    1.391,    3.748], sigm: [    2.201,    1.977,    4.632]}
+    - {ac: sio, day: 3, nsta:   335, nrf:   145, ncore:    47, sqrtvf:   0.620249, wrms: [    1.992,    2.017,    4.526], sigm: [    2.200,    2.172,    4.845]}
+    - {ac: sio, day: 4, nsta:   337, nrf:   142, ncore:    46, sqrtvf:   0.598431, wrms: [    1.833,    1.934,    3.876], sigm: [    2.035,    1.979,    4.566]}
+    - {ac: sio, day: 5, nsta:   331, nrf:   142, ncore:    46, sqrtvf:   0.646175, wrms: [    2.014,    2.094,    4.075], sigm: [    2.297,    2.216,    5.022]}
+    - {ac: sio, day: 6, nsta:   330, nrf:   143, ncore:    46, sqrtvf:   0.582319, wrms: [    1.519,    1.789,    3.809], sigm: [    2.035,    1.931,    4.416]}
+  -
+    - {ac: igs, day: 0, nsta:   491, nrf:   160, ncore:    47}
+    - {ac: igs, day: 1, nsta:   494, nrf:   153, ncore:    46}
+    - {ac: igs, day: 2, nsta:   499, nrf:   156, ncore:    45}
+    - {ac: igs, day: 3, nsta:   494, nrf:   156, ncore:    47}
+    - {ac: igs, day: 4, nsta:   496, nrf:   155, ncore:    45}
+    - {ac: igs, day: 5, nsta:   493, nrf:   154, ncore:    46}
+    - {ac: igs, day: 6, nsta:   493, nrf:   154, ncore:    46}
+
+
+
+# 2) "AC - igs" ERP, geocenter and scale residuals:
+#--------------------------------------------------
+# - dxpo  = X-pole residuals (unit: uas)
+# - dypo  = Y-pole residuals (unit: uas)
+# - dxpor = X-pole rate residuals (unit: uas/d)
+# - dypor = Y-pole rate residuals (unit: uas/d)
+# - dlod  = LOD residuals (unit: us)
+# - dgc   = geocenter rediduals (unit: mm, frame: XYZ)
+# - dsc   = terrestrial scale residuals (unit: ppb)
+
+globres:
+  -
+    - {ac: cod, day: 0, dxpo:   10.807, dypo:   18.390, dxpor:   20.972, dypor:   49.601, dlod:    7.147, dgc:[   -2.723,    0.730,   -6.602], dsc:    0.033}
+    - {ac: cod, day: 1, dxpo:    1.351, dypo:   18.566, dxpor:  -78.516, dypor:  -18.420, dlod:   -5.025, dgc:[   -2.837,   -2.131,  -11.357], dsc:   -0.046}
+    - {ac: cod, day: 2, dxpo:    6.300, dypo:   -7.401, dxpor:  -19.069, dypor:   11.717, dlod:   -6.552, dgc:[   -3.236,    3.853,   -7.065], dsc:    0.041}
+    - {ac: cod, day: 3, dxpo:   11.832, dypo:   23.571, dxpor:  -83.771, dypor:  -61.601, dlod:   -6.524, dgc:[   -2.425,    0.310,  -10.658], dsc:    0.134}
+    - {ac: cod, day: 4, dxpo:    5.398, dypo:   33.991, dxpor:   44.141, dypor:  -57.437, dlod:   -3.523, dgc:[   -2.647,   -1.402,   -9.356], dsc:    0.036}
+    - {ac: cod, day: 5, dxpo:   -3.386, dypo:   -2.906, dxpor:   71.101, dypor: -142.832, dlod:   -4.215, dgc:[   -3.235,    1.565,  -12.536], dsc:    0.083}
+    - {ac: cod, day: 6, dxpo:  -13.862, dypo:   16.690, dxpor:   -7.005, dypor:  -24.158, dlod:   -3.789, dgc:[   -3.249,   -2.205,  -10.290], dsc:    0.061}
+  -
+    - {ac: emr, day: 0, dxpo:   15.523, dypo:    0.164, dxpor:   48.240, dypor:    6.909, dlod:    8.789, dgc:[    0.322,   -4.660,   -3.752], dsc:   -0.074}
+    - {ac: emr, day: 1, dxpo:   -5.246, dypo:    3.600, dxpor:   -8.345, dypor:  -53.681, dlod:   -7.613, dgc:[   -1.069,    2.494,   -0.915], dsc:    0.019}
+    - {ac: emr, day: 2, dxpo:    6.741, dypo:   25.892, dxpor:  -89.743, dypor:  -99.166, dlod:   12.883, dgc:[   -4.144,   -0.955,   -5.361], dsc:   -0.061}
+    - {ac: emr, day: 3, dxpo:   -7.719, dypo:   17.510, dxpor: -167.165, dypor:  -44.164, dlod:   19.744, dgc:[    2.126,   -5.058,    0.810], dsc:    0.019}
+    - {ac: emr, day: 4, dxpo:    2.861, dypo:   28.874, dxpor:  -71.977, dypor: -153.298, dlod:    4.436, dgc:[    0.120,    0.141,   -1.932], dsc:    0.062}
+    - {ac: emr, day: 5, dxpo:  -12.774, dypo:  -18.695, dxpor:   46.283, dypor:  -48.248, dlod:  -12.914, dgc:[    1.547,   -0.689,    1.560], dsc:    0.003}
+    - {ac: emr, day: 6, dxpo:  -18.081, dypo:   12.887, dxpor:    4.547, dypor:  -78.124, dlod:   -9.198, dgc:[    2.949,   -1.356,    0.018], dsc:    0.172}
+  -
+    - {ac: esa, day: 0, dxpo:   -7.868, dypo:   17.944, dxpor:  -92.987, dypor:  -25.196, dlod:   -7.689, dgc:[    1.212,    2.982,    4.225], dsc:    0.174}
+    - {ac: esa, day: 1, dxpo:  -21.466, dypo:    3.140, dxpor: -105.536, dypor:  -51.519, dlod:   -4.427, dgc:[    1.524,    4.028,    3.338], dsc:    0.259}
+    - {ac: esa, day: 2, dxpo:  -27.219, dypo:    9.749, dxpor:  -99.927, dypor:  -47.796, dlod:  -18.492, dgc:[    2.311,    0.968,    3.890], dsc:    0.291}
+    - {ac: esa, day: 3, dxpo:  -12.722, dypo:    3.458, dxpor:  -77.499, dypor:  -37.136, dlod:  -13.290, dgc:[   -2.427,    3.258,    2.845], dsc:    0.248}
+    - {ac: esa, day: 4, dxpo:    0.272, dypo:    5.684, dxpor: -106.985, dypor:  112.740, dlod:  -15.641, dgc:[   -0.877,    1.956,    5.922], dsc:    0.251}
+    - {ac: esa, day: 5, dxpo:   -6.548, dypo:   12.191, dxpor: -113.065, dypor:   36.567, dlod:  -10.695, dgc:[   -2.856,    1.202,    6.712], dsc:    0.182}
+    - {ac: esa, day: 6, dxpo:    8.467, dypo:   -4.377, dxpor:   -0.637, dypor:   44.948, dlod:   -4.242, dgc:[    0.899,    1.497,    6.547], dsc:    0.170}
+  -
+    - {ac: gfz, day: 0, dxpo:  -17.319, dypo:   23.227, dxpor:   13.242, dypor: -235.399, dlod:   -3.037, dgc:[   -0.388,   -1.057,   -9.125], dsc:   -0.167}
+    - {ac: gfz, day: 1, dxpo:  -17.351, dypo:   15.213, dxpor:  -33.105, dypor:  -86.261, dlod:    2.577, dgc:[    2.057,   -4.338,  -12.284], dsc:   -0.188}
+    - {ac: gfz, day: 2, dxpo:   -5.354, dypo:   12.266, dxpor:  -85.278, dypor:  -39.537, dlod:    2.949, dgc:[   -3.202,    0.802,  -12.460], dsc:   -0.090}
+    - {ac: gfz, day: 3, dxpo:   33.087, dypo:   44.200, dxpor:  -41.805, dypor:  112.688, dlod:  -10.129, dgc:[   -2.387,   -2.037,   -6.682], dsc:   -0.126}
+    - {ac: gfz, day: 4, dxpo:   78.883, dypo:   12.634, dxpor:   82.732, dypor:  379.325, dlod:    1.292, dgc:[   -2.645,    0.837,   -5.008], dsc:   -0.153}
+    - {ac: gfz, day: 5, dxpo:   26.292, dypo:   29.959, dxpor:  -31.327, dypor:    9.094, dlod:   -4.661, dgc:[   -0.132,   -1.850,    1.439], dsc:   -0.111}
+    - {ac: gfz, day: 6, dxpo:   38.918, dypo:   11.615, dxpor:   24.643, dypor: -113.056, dlod:    1.838, dgc:[   -1.071,   -1.024,   -5.225], dsc:   -0.068}
+  -
+    - {ac: grg, day: 0, dxpo:  -20.477, dypo:  -20.840, dxpor:   19.585, dypor:  -65.655, dlod:    2.829, dgc:[   -0.509,    1.466,  -11.473], dsc:   -0.011}
+    - {ac: grg, day: 1, dxpo:  -30.653, dypo:  -16.119, dxpor:  120.575, dypor: -116.615, dlod:    0.833, dgc:[   -1.240,    0.843,   -8.659], dsc:   -0.065}
+    - {ac: grg, day: 2, dxpo:  -18.632, dypo:  -10.871, dxpor:   61.169, dypor:  -30.714, dlod:   -4.121, dgc:[   -2.783,    0.539,  -10.448], dsc:   -0.068}
+    - {ac: grg, day: 3, dxpo:    7.221, dypo:   -4.084, dxpor:   90.444, dypor:   56.139, dlod:   -8.398, dgc:[   -0.671,    2.425,   -6.475], dsc:   -0.025}
+    - {ac: grg, day: 4, dxpo:   50.347, dypo:    3.639, dxpor:   17.552, dypor:  226.646, dlod:   -5.374, dgc:[    3.389,    2.975,   -6.354], dsc:    0.007}
+    - {ac: grg, day: 5, dxpo:   55.099, dypo:   18.736, dxpor:   -8.815, dypor:  219.739, dlod:   -4.616, dgc:[    0.212,    2.183,   -8.377], dsc:   -0.055}
+    - {ac: grg, day: 6, dxpo:   20.548, dypo:   -1.110, dxpor: -138.663, dypor:  147.386, dlod:   -9.115, dgc:[    3.642,    3.749,   -8.767], dsc:    0.068}
+  -
+    - {ac: jgx, day: 0, dxpo:  -24.756, dypo:    3.402, dxpor:   30.180, dypor:  -32.867, dlod:    3.249, dgc:[    3.507,    1.366,   -9.309], dsc:    0.141}
+    - {ac: jgx, day: 1, dxpo:  -20.824, dypo:  -18.267, dxpor:   15.087, dypor:  -40.597, dlod:    0.543, dgc:[    1.045,    1.713,   -7.393], dsc:    0.146}
+    - {ac: jgx, day: 2, dxpo:  -46.863, dypo:    2.356, dxpor:   12.859, dypor:   -5.841, dlod:   -4.609, dgc:[    2.888,    0.137,   -9.598], dsc:    0.043}
+    - {ac: jgx, day: 3, dxpo:  -17.918, dypo:  -21.411, dxpor:   28.404, dypor:   50.847, dlod:  -12.460, dgc:[    2.703,    1.392,   -8.880], dsc:    0.182}
+    - {ac: jgx, day: 4, dxpo:  -12.797, dypo:   20.199, dxpor:   24.537, dypor:   53.533, dlod:   -9.028, dgc:[    2.149,    0.156,   -8.112], dsc:    0.131}
+    - {ac: jgx, day: 5, dxpo:  -16.788, dypo:    9.741, dxpor:  -91.443, dypor:   37.549, dlod:  -11.487, dgc:[    1.465,   -0.921,   -6.224], dsc:    0.122}
+    - {ac: jgx, day: 6, dxpo:  -19.295, dypo:   10.919, dxpor:  -43.419, dypor:  -34.956, dlod:  -12.021, dgc:[    0.128,   -3.593,   -3.860], dsc:    0.164}
+  -
+    - {ac: jpl, day: 0, dxpo:    8.196, dypo:    6.532, dxpor:  -37.642, dypor:   33.911, dlod:   -4.134, dgc:[   -2.494,   -1.478,   -4.693], dsc:    0.016}
+    - {ac: jpl, day: 1, dxpo:    9.380, dypo:   15.190, dxpor:  -61.414, dypor:  -29.763, dlod:  -26.677, dgc:[    0.051,    1.032,   -3.461], dsc:   -0.080}
+    - {ac: jpl, day: 2, dxpo:   11.800, dypo:   25.153, dxpor:  -98.518, dypor:  -35.481, dlod:  -13.255, dgc:[   -1.326,   -2.403,   -4.960], dsc:    0.062}
+    - {ac: jpl, day: 3, dxpo:    1.770, dypo:   16.366, dxpor:  -73.010, dypor:  -48.507, dlod:   -0.541, dgc:[   -1.955,   -0.860,   -4.342], dsc:   -0.068}
+    - {ac: jpl, day: 4, dxpo:   -7.051, dypo:   18.538, dxpor: -167.802, dypor:  -70.737, dlod:    1.140, dgc:[   -2.045,    1.803,   -3.181], dsc:    0.032}
+    - {ac: jpl, day: 5, dxpo:   -3.115, dypo:   -6.604, dxpor:   -7.615, dypor:  -25.977, dlod:  -24.480, dgc:[   -0.455,   -0.826,   -3.083], dsc:   -0.044}
+    - {ac: jpl, day: 6, dxpo:  -17.948, dypo:   -6.063, dxpor:   30.814, dypor:  -27.744, dlod:  -17.823, dgc:[   -2.479,   -4.373,   -3.684], dsc:   -0.026}
+  -
+    - {ac: mit, day: 0, dxpo:    6.383, dypo:  -11.973, dxpor:   -8.726, dypor:  108.973, dlod:   -1.925, dgc:[    1.267,   -0.844,   21.505], dsc:   -0.042}
+    - {ac: mit, day: 1, dxpo:   32.415, dypo:  -15.604, dxpor:   38.226, dypor:  266.149, dlod:    2.930, dgc:[    3.012,   -3.514,   21.275], dsc:    0.011}
+    - {ac: mit, day: 2, dxpo:   21.276, dypo:  -10.263, dxpor:    7.588, dypor:  146.674, dlod:    5.987, dgc:[    2.925,   -3.327,   21.267], dsc:   -0.058}
+    - {ac: mit, day: 3, dxpo:   17.359, dypo:  -30.927, dxpor:   44.173, dypor:  144.054, dlod:   11.509, dgc:[    1.523,   -0.853,   17.616], dsc:   -0.107}
+    - {ac: mit, day: 4, dxpo:  -28.771, dypo:  -18.260, dxpor:  107.699, dypor:   26.538, dlod:    4.628, dgc:[    2.154,   -3.878,   17.537], dsc:   -0.021}
+    - {ac: mit, day: 5, dxpo:  -22.242, dypo:  -29.982, dxpor:   86.067, dypor:   81.942, dlod:    8.029, dgc:[    2.155,   -3.226,   14.494], dsc:   -0.040}
+    - {ac: mit, day: 6, dxpo:   -1.931, dypo:   -1.197, dxpor:   13.790, dypor:   35.715, dlod:    5.049, dgc:[    0.204,   -0.198,   14.040], dsc:   -0.079}
+  -
+    - {ac: ngs, day: 0, dxpo:  -55.633, dypo:  -10.564, dxpor:  -45.624, dypor: -114.727, dlod:   -1.730, dgc:[   -0.104,   -0.262,   12.337], dsc:    0.017}
+    - {ac: ngs, day: 1, dxpo:   15.851, dypo:  -22.465, dxpor:   22.788, dypor:  182.399, dlod:   13.190, dgc:[   -5.078,    4.350,   11.030], dsc:    0.144}
+    - {ac: ngs, day: 2, dxpo:  -60.127, dypo:  -30.207, dxpor:   86.283, dypor:    6.749, dlod:    0.422, dgc:[   -0.466,    0.734,    3.321], dsc:    0.032}
+    - {ac: ngs, day: 3, dxpo:  -73.447, dypo:   -9.240, dxpor:  -96.650, dypor: -250.461, dlod:   -6.809, dgc:[   -0.582,    0.902,   10.772], dsc:   -0.034}
+    - {ac: ngs, day: 4, dxpo:   -3.773, dypo:   -0.010, dxpor:  -11.226, dypor: -217.103, dlod:   -1.993, dgc:[    2.838,    1.456,    6.775], dsc:   -0.055}
+    - {ac: ngs, day: 5, dxpo:   27.119, dypo:   62.696, dxpor: -159.187, dypor:   51.566, dlod:   -4.875, dgc:[    4.022,    0.333,    5.341], dsc:    0.002}
+    - {ac: ngs, day: 6, dxpo:   52.936, dypo:  -25.338, dxpor: -114.977, dypor:  368.347, dlod:   -0.844, dgc:[    2.222,    2.935,    8.236], dsc:    0.063}
+  -
+    - {ac: sio, day: 0, dxpo:    6.244, dypo:  -45.698, dxpor:   52.546, dypor:  -77.304, dlod:   -4.279, dgc:[    0.749,   -1.214,    1.526], dsc:    0.072}
+    - {ac: sio, day: 1, dxpo:    7.006, dypo:  -19.629, dxpor:   42.459, dypor:   24.506, dlod:   -0.952, dgc:[    0.376,   -1.753,    5.432], dsc:   -0.027}
+    - {ac: sio, day: 2, dxpo:    9.168, dypo:  -40.577, dxpor:  228.417, dypor:   76.231, dlod:    5.576, dgc:[    3.512,   -0.688,    3.945], dsc:    0.040}
+    - {ac: sio, day: 3, dxpo:  -17.563, dypo:  -41.442, dxpor:  198.108, dypor:  175.012, dlod:   11.778, dgc:[    4.398,    0.145,    1.270], dsc:    0.080}
+    - {ac: sio, day: 4, dxpo:  -49.757, dypo:  -33.990, dxpor:  187.664, dypor:  -13.985, dlod:    8.626, dgc:[   -0.601,   -0.369,   -4.510], dsc:    0.052}
+    - {ac: sio, day: 5, dxpo:  -27.588, dypo:  -56.308, dxpor:  108.706, dypor:  253.420, dlod:   12.263, dgc:[   -0.067,    1.701,   -1.900], dsc:    0.090}
+    - {ac: sio, day: 6, dxpo:   -2.056, dypo:  -25.988, dxpor:  110.053, dypor:  139.570, dlod:    9.612, dgc:[   -0.372,    3.662,   -3.585], dsc:    0.008}
+  -
+    - {ac: bua, day: 0, dxpo:  -48.224, dypo:   22.386, dxpor:   75.129, dypor: -131.946, dlod:   19.320}
+    - {ac: bua, day: 1, dxpo:    6.743, dypo:  -32.770, dxpor:    2.294, dypor:  104.994, dlod:  -24.676}
+    - {ac: bua, day: 2, dxpo: -112.680, dypo:   -0.698, dxpor:  -66.162, dypor: -113.866, dlod:   34.336}
+    - {ac: bua, day: 3, dxpo:    3.790, dypo:  -23.356, dxpor:  148.072, dypor:   70.967, dlod:  -34.525}
+    - {ac: bua, day: 4, dxpo:   94.375, dypo:   32.057, dxpor:  -18.434, dypor:  -38.684, dlod:  -41.176}
+    - {ac: bua, day: 5, dxpo:  117.197, dypo:   60.422, dxpor:  -27.743, dypor:   22.869, dlod:  -15.718}
+    - {ac: bua, day: 6, dxpo:  -45.679, dypo:   17.092, dxpor: -104.399, dypor: -295.681, dlod:   -9.978}
+
+
+
+# 3) "AC -> IGSR3" 7-parameter transformations:
+#----------------------------------------------
+# - T   = translations (unit: mm, frame: XYZ)
+# - S   = scale factors (unit: ppb)
+# - R   = rotations (unit: mas, frame: XYZ)
+# - rms = RMS of "AC -> IGSR3" transformation residuals (unit: mm, frame: ENH)
+
+transfo:
+  -
+    - {ac: cod, day: 0, T:[    1.595,   -1.785,    0.944], S:   -0.143, R:[    0.005,   -0.001,   -0.014], rms:[    2.313,    2.836,    6.477]}
+    - {ac: cod, day: 1, T:[    1.275,   -1.561,    1.165], S:   -0.134, R:[    0.008,    0.003,   -0.011], rms:[    2.158,    2.665,    6.596]}
+    - {ac: cod, day: 2, T:[    1.014,   -1.152,    1.085], S:   -0.146, R:[    0.004,   -0.002,   -0.010], rms:[    2.150,    2.624,    6.620]}
+    - {ac: cod, day: 3, T:[    0.475,   -0.881,    1.096], S:   -0.128, R:[   -0.002,    0.004,   -0.014], rms:[    2.378,    2.640,    6.192]}
+    - {ac: cod, day: 4, T:[    0.723,   -0.781,    0.794], S:   -0.059, R:[    0.009,   -0.005,   -0.016], rms:[    2.700,    2.671,    5.285]}
+    - {ac: cod, day: 5, T:[    1.055,   -0.439,    0.801], S:   -0.080, R:[    0.006,   -0.007,   -0.013], rms:[    2.877,    2.724,    6.002]}
+    - {ac: cod, day: 6, T:[    1.212,   -1.218,    0.604], S:    0.034, R:[    0.006,    0.001,   -0.011], rms:[    2.624,    2.734,    5.507]}
+  -
+    - {ac: emr, day: 0, T:[    2.932,   -2.820,   -4.613], S:   -0.143, R:[    0.013,   -0.006,    0.013], rms:[    2.402,    2.790,    7.564]}
+    - {ac: emr, day: 1, T:[    2.947,    3.918,    0.215], S:   -0.343, R:[    0.005,   -0.006,    0.013], rms:[    2.381,    2.843,    6.287]}
+    - {ac: emr, day: 2, T:[   -2.729,    0.083,   -1.543], S:   -0.231, R:[    0.010,   -0.012,    0.009], rms:[    2.626,    2.524,    5.500]}
+    - {ac: emr, day: 3, T:[    2.225,   -4.684,    4.387], S:   -0.166, R:[    0.008,   -0.012,    0.013], rms:[    2.218,    2.868,    5.680]}
+    - {ac: emr, day: 4, T:[    4.304,    3.798,    0.470], S:   -0.228, R:[    0.013,   -0.007,    0.016], rms:[    2.618,    3.027,    7.033]}
+    - {ac: emr, day: 5, T:[    5.130,    1.750,    0.595], S:    0.032, R:[    0.008,   -0.009,    0.009], rms:[    2.828,    2.931,    6.475]}
+    - {ac: emr, day: 6, T:[    6.473,    1.031,   -1.305], S:   -0.279, R:[   -0.005,   -0.016,    0.014], rms:[    3.021,    3.172,    7.002]}
+  -
+    - {ac: esa, day: 0, T:[    0.527,   -0.344,    0.514], S:   -0.604, R:[    0.018,   -0.019,    0.007], rms:[    2.300,    2.643,    7.516]}
+    - {ac: esa, day: 1, T:[    0.238,   -0.411,    0.647], S:   -0.895, R:[    0.001,   -0.003,   -0.008], rms:[    2.073,    2.247,    6.307]}
+    - {ac: esa, day: 2, T:[    0.321,   -0.222,    1.151], S:   -0.719, R:[    0.012,   -0.012,    0.007], rms:[    2.676,    2.417,    7.326]}
+    - {ac: esa, day: 3, T:[    0.346,   -0.309,    0.661], S:   -0.557, R:[    0.019,   -0.014,    0.005], rms:[    2.628,    2.430,    6.646]}
+    - {ac: esa, day: 4, T:[    0.423,   -0.081,    0.684], S:   -0.610, R:[   -0.002,   -0.012,   -0.000], rms:[    2.608,    2.469,    6.432]}
+    - {ac: esa, day: 5, T:[    0.724,    0.275,    0.123], S:   -0.513, R:[    0.015,   -0.019,    0.012], rms:[    2.557,    2.024,    5.846]}
+    - {ac: esa, day: 6, T:[    0.972,    0.384,    0.762], S:   -0.470, R:[    0.025,   -0.013,    0.013], rms:[    2.973,    2.305,    7.694]}
+  -
+    - {ac: gfz, day: 0, T:[    0.704,   -0.791,   -0.024], S:    0.117, R:[   -0.009,   -0.012,    0.013], rms:[    3.019,    2.448,    6.370]}
+    - {ac: gfz, day: 1, T:[    0.490,   -0.618,   -0.377], S:    0.070, R:[    0.005,   -0.015,    0.004], rms:[    2.899,    2.675,    5.800]}
+    - {ac: gfz, day: 2, T:[    0.700,   -0.778,    0.085], S:    0.085, R:[   -0.013,   -0.016,   -0.001], rms:[    3.170,    2.800,    5.271]}
+    - {ac: gfz, day: 3, T:[    0.725,   -0.725,   -0.055], S:    0.241, R:[   -0.008,   -0.014,    0.003], rms:[    3.060,    2.393,    4.723]}
+    - {ac: gfz, day: 4, T:[    0.821,   -1.305,   -0.803], S:    0.170, R:[   -0.017,   -0.001,    0.016], rms:[    3.063,    2.424,    5.836]}
+    - {ac: gfz, day: 5, T:[    1.017,   -0.865,   -0.674], S:    0.178, R:[   -0.006,   -0.007,    0.030], rms:[    3.035,    2.375,    5.788]}
+    - {ac: gfz, day: 6, T:[    1.514,   -1.261,   -0.293], S:    0.128, R:[   -0.009,   -0.026,    0.006], rms:[    3.346,    2.526,    6.493]}
+  -
+    - {ac: grg, day: 0, T:[    1.338,   -1.106,   -1.542], S:   -0.240, R:[    0.008,    0.022,    0.015], rms:[    2.700,    2.785,    5.142]}
+    - {ac: grg, day: 1, T:[    0.763,   -1.108,   -1.747], S:   -0.186, R:[    0.013,   -0.001,    0.017], rms:[    2.314,    2.791,    5.672]}
+    - {ac: grg, day: 2, T:[    0.094,   -1.199,   -1.059], S:   -0.111, R:[   -0.007,    0.008,    0.010], rms:[    2.371,    2.895,    5.701]}
+    - {ac: grg, day: 3, T:[    0.132,   -1.017,   -1.751], S:   -0.102, R:[    0.012,    0.014,    0.036], rms:[    2.513,    3.138,    5.236]}
+    - {ac: grg, day: 4, T:[    1.384,   -0.644,   -1.594], S:   -0.098, R:[    0.001,    0.013,    0.036], rms:[    2.076,    2.752,    4.888]}
+    - {ac: grg, day: 5, T:[    0.538,   -0.703,   -2.124], S:    0.086, R:[    0.011,    0.011,    0.027], rms:[    1.944,    2.799,    4.567]}
+    - {ac: grg, day: 6, T:[    0.516,   -0.364,   -1.516], S:   -0.080, R:[    0.025,    0.013,    0.054], rms:[    2.412,    2.467,    4.338]}
+  -
+    - {ac: jgx, day: 0, T:[    5.888,    3.516,  -10.515], S:   -0.109, R:[    0.052,   -0.018,    0.029], rms:[    2.292,    2.992,    7.477]}
+    - {ac: jgx, day: 1, T:[    4.399,    4.176,   -5.521], S:   -0.204, R:[    0.034,   -0.001,    0.014], rms:[    2.142,    2.509,    7.721]}
+    - {ac: jgx, day: 2, T:[    3.593,    2.117,   -4.924], S:   -0.124, R:[    0.040,    0.000,    0.016], rms:[    2.331,    2.629,    7.054]}
+    - {ac: jgx, day: 3, T:[    2.652,    2.331,   -5.381], S:   -0.175, R:[    0.032,   -0.004,    0.015], rms:[    2.640,    3.231,    7.554]}
+    - {ac: jgx, day: 4, T:[    5.851,    4.069,   -5.871], S:   -0.161, R:[    0.044,   -0.019,    0.030], rms:[    2.549,    3.053,    6.994]}
+    - {ac: jgx, day: 5, T:[    5.330,    1.758,   -6.222], S:   -0.071, R:[    0.038,   -0.011,    0.035], rms:[    2.671,    3.051,    7.325]}
+    - {ac: jgx, day: 6, T:[    3.939,   -0.090,   -4.537], S:   -0.113, R:[    0.027,    0.003,    0.048], rms:[    2.942,    3.111,    7.486]}
+  -
+    - {ac: jpl, day: 0, T:[    0.933,    0.781,   -6.104], S:   -0.216, R:[    0.025,   -0.019,   -0.006], rms:[    2.568,    2.551,    6.047]}
+    - {ac: jpl, day: 1, T:[    3.964,    2.818,   -2.366], S:   -0.168, R:[    0.027,   -0.010,   -0.000], rms:[    2.568,    2.750,    6.044]}
+    - {ac: jpl, day: 2, T:[   -0.404,   -1.068,   -1.151], S:   -0.234, R:[    0.020,   -0.002,   -0.008], rms:[    2.783,    2.470,    5.656]}
+    - {ac: jpl, day: 3, T:[   -1.597,   -0.360,   -0.878], S:   -0.046, R:[    0.028,   -0.004,   -0.002], rms:[    2.734,    2.392,    6.489]}
+    - {ac: jpl, day: 4, T:[    2.585,    5.327,   -1.234], S:   -0.114, R:[    0.030,   -0.019,    0.004], rms:[    2.961,    2.612,    6.644]}
+    - {ac: jpl, day: 5, T:[    4.078,    1.692,   -3.166], S:   -0.016, R:[    0.022,   -0.016,   -0.006], rms:[    2.713,    2.347,    5.993]}
+    - {ac: jpl, day: 6, T:[    1.109,   -1.593,   -4.376], S:   -0.024, R:[    0.010,   -0.012,   -0.007], rms:[    3.112,    2.665,    7.243]}
+  -
+    - {ac: mit, day: 0, T:[    3.906,    1.001,   21.046], S:   -0.339, R:[    0.021,   -0.031,   -0.012], rms:[    2.747,    2.472,    7.734]}
+    - {ac: mit, day: 1, T:[    6.156,   -1.778,   23.150], S:   -0.362, R:[    0.022,   -0.015,   -0.009], rms:[    2.720,    3.170,    8.835]}
+    - {ac: mit, day: 2, T:[    3.994,   -1.988,   25.541], S:   -0.363, R:[    0.014,   -0.025,    0.006], rms:[    2.891,    2.719,    9.456]}
+    - {ac: mit, day: 3, T:[    1.596,   -0.163,   21.812], S:   -0.007, R:[    0.015,   -0.024,    0.012], rms:[    3.147,    2.846,    8.515]}
+    - {ac: mit, day: 4, T:[    6.234,   -0.824,   19.936], S:   -0.180, R:[    0.014,   -0.021,   -0.003], rms:[    2.912,    2.393,    8.666]}
+    - {ac: mit, day: 5, T:[    6.439,   -0.493,   15.236], S:   -0.116, R:[    0.027,   -0.018,    0.000], rms:[    2.771,    2.239,    7.379]}
+    - {ac: mit, day: 6, T:[    3.940,    2.645,   13.921], S:    0.079, R:[    0.023,   -0.025,   -0.011], rms:[    3.134,    2.617,    8.043]}
+  -
+    - {ac: ngs, day: 0, T:[    2.395,    2.125,   12.146], S:   -0.352, R:[   -0.015,    0.038,    0.008], rms:[    2.308,    3.061,    5.844]}
+    - {ac: ngs, day: 1, T:[   -0.917,    6.178,   13.053], S:   -0.568, R:[    0.001,    0.056,   -0.017], rms:[    2.316,    3.169,    7.397]}
+    - {ac: ngs, day: 2, T:[    0.718,    2.103,    7.808], S:   -0.408, R:[   -0.010,    0.026,   -0.009], rms:[    3.325,    3.301,    7.470]}
+    - {ac: ngs, day: 3, T:[   -0.498,    1.638,   15.103], S:   -0.180, R:[   -0.024,    0.052,   -0.003], rms:[    2.948,    3.267,    7.712]}
+    - {ac: ngs, day: 4, T:[    6.795,    4.510,    9.834], S:   -0.212, R:[   -0.002,    0.018,    0.017], rms:[    3.381,    2.824,    8.306]}
+    - {ac: ngs, day: 5, T:[    8.167,    2.883,    6.072], S:   -0.103, R:[    0.007,   -0.004,    0.011], rms:[    2.839,    2.746,    7.084]}
+    - {ac: ngs, day: 6, T:[    6.246,    5.207,    8.239], S:   -0.181, R:[    0.017,    0.015,    0.027], rms:[    3.143,    2.785,    6.881]}
+  -
+    - {ac: sio, day: 0, T:[    3.433,    0.090,    0.635], S:   -0.420, R:[    0.022,    0.020,   -0.006], rms:[    3.083,    3.442,    7.340]}
+    - {ac: sio, day: 1, T:[    3.776,   -0.210,    6.843], S:   -0.309, R:[    0.066,   -0.074,    0.058], rms:[    2.803,    3.649,    7.993]}
+    - {ac: sio, day: 2, T:[    4.118,    0.509,    8.035], S:   -0.415, R:[    0.020,    0.001,    0.043], rms:[    3.021,    3.312,    7.772]}
+    - {ac: sio, day: 3, T:[    4.162,    0.609,    5.318], S:   -0.183, R:[    0.027,   -0.087,    0.124], rms:[    2.641,    3.900,    8.296]}
+    - {ac: sio, day: 4, T:[    3.591,    2.848,   -2.181], S:   -0.260, R:[    0.017,   -0.132,    0.063], rms:[    3.103,    2.557,    9.338]}
+    - {ac: sio, day: 5, T:[    3.937,    4.150,   -1.584], S:   -0.262, R:[   -0.013,   -0.129,    0.062], rms:[    2.916,    3.314,    6.603]}
+    - {ac: sio, day: 6, T:[    3.153,    6.196,   -3.424], S:   -0.083, R:[    0.042,    0.019,    0.062], rms:[    3.102,    3.044,    9.284]}
+  -
+    - {ac: igs, day: 0, T:[    0.000,    0.000,   -0.000], S:   -0.351, R:[    0.000,    0.000,   -0.000], rms:[    2.431,    2.006,    6.519]}
+    - {ac: igs, day: 1, T:[    0.000,    0.000,    0.000], S:   -0.335, R:[   -0.000,   -0.000,    0.000], rms:[    2.120,    2.084,    6.293]}
+    - {ac: igs, day: 2, T:[    0.000,    0.000,   -0.000], S:   -0.225, R:[    0.000,    0.000,   -0.000], rms:[    2.540,    2.259,    5.623]}
+    - {ac: igs, day: 3, T:[   -0.000,   -0.000,    0.000], S:   -0.059, R:[   -0.000,   -0.000,    0.000], rms:[    2.385,    2.253,    5.786]}
+    - {ac: igs, day: 4, T:[    0.000,   -0.000,   -0.000], S:   -0.181, R:[   -0.000,    0.000,   -0.000], rms:[    2.129,    1.889,    5.760]}
+    - {ac: igs, day: 5, T:[   -0.000,   -0.000,   -0.000], S:   -0.136, R:[   -0.000,    0.000,   -0.000], rms:[    2.448,    1.926,    5.418]}
+    - {ac: igs, day: 6, T:[    0.000,   -0.000,    0.000], S:   -0.060, R:[   -0.000,   -0.000,   -0.000], rms:[    2.829,    2.055,    6.073]}
+
+
+
+# 4) Manually rejected stations:
+#-------------------------------
+
+rejections:
+  - {ac: gfz, day: 0, sta: [MKEA]}
+  - {ac: gfz, day: 1, sta: [MKEA]}
+  - {ac: gfz, day: 2, sta: [MKEA]}
+  - {ac: gfz, day: 3, sta: [MKEA]}
+  - {ac: gfz, day: 4, sta: [MKEA]}
+  - {ac: gfz, day: 5, sta: [MKEA]}
+  - {ac: gfz, day: 6, sta: [MKEA]}
+  - {ac: jgx, day: 0, sta: [NAUR, WUTH]}
+  - {ac: jgx, day: 1, sta: [NAUR, WUTH]}
+  - {ac: jgx, day: 2, sta: [NAUR, WUTH]}
+  - {ac: jgx, day: 3, sta: [NAUR, WUTH]}
+  - {ac: jgx, day: 4, sta: [NAUR, WUTH]}
+  - {ac: jgx, day: 5, sta: [NAUR, WUTH]}
+  - {ac: jgx, day: 6, sta: [NAUR, WUTH]}
+  - {ac: ngs, day: 0, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: ngs, day: 1, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: ngs, day: 2, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: ngs, day: 3, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: ngs, day: 4, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: ngs, day: 5, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: ngs, day: 6, sta: [GANP, HNPT, MANA, MKEA, NAUR, PTVL, SHE2]}
+  - {ac: sio, day: 0, sta: [NOT1, SFER, TWTF, UZHL]}
+  - {ac: sio, day: 1, sta: [NOT1, SFER, TWTF, UZHL]}
+  - {ac: sio, day: 2, sta: [NOT1, SFER, TWTF, UZHL]}
+  - {ac: sio, day: 3, sta: [NOT1, SFER, TWTF, UZHL]}
+  - {ac: sio, day: 4, sta: [NOT1, SFER, TWTF, UZHL]}
+  - {ac: sio, day: 5, sta: [NOT1, SFER, TWTF, UZHL]}
+  - {ac: sio, day: 6, sta: [NOT1, SFER, TWTF, UZHL]}
+
+
+
+# 5) Outliers:
+#-------------
+# - res = "AC - igs" station position residuals before rejection (unit: mm, frame: ENH)
+
+outliers:
+  - {ac: cod, day: 2, sta: LMMF, res: [    2.439,    7.714,    4.193]}
+  - {ac: grg, day: 1, sta: SFER, res: [   -5.693,   -4.393,    2.228]}
+  - {ac: mit, day: 1, sta: LCK4, res: [   -0.135,   -0.645,   33.163]}
+  - {ac: mit, day: 2, sta: LCK4, res: [    5.381,    1.039,   31.388]}
+  - {ac: mit, day: 4, sta: LCK4, res: [    0.332,    0.844,   28.333]}
+  - {ac: mit, day: 5, sta: LCK4, res: [    1.105,    0.722,   23.558]}
+  - {ac: mit, day: 6, sta: LCK4, res: [    2.014,    0.726,   31.766]}
+  - {ac: ngs, day: 0, sta: GUAM, res: [  -12.343,   -3.487,   -4.398]}
+  - {ac: ngs, day: 1, sta: TOW2, res: [    6.606,    2.553,   -0.115]}
+  - {ac: ngs, day: 5, sta: LCK4, res: [   -0.037,   -2.249,  -22.323]}
+  - {ac: sio, day: 0, sta: NOVM, res: [   -0.211,   -0.064,  -18.713]}
+  - {ac: sio, day: 4, sta: NOVM, res: [    1.599,    3.269,  -18.299]}
+  - {ac: sio, day: 6, sta: LCK4, res: [    1.926,    2.227,   24.281]}
+
+
+
+# 6) Station metadata inconsistencies:
+#-------------------------------------
+# - sources = site log repositories
+# - nologs  = list of stations for which no site log was found
+# - errors  = inconsistencies between AC solutions and site logs
+
+sources:
+  - {name: igs   , address: 'https://files.igs.org/pub/station/log'}
+  - {name: mgex  , address: 'https://files.igs.org/pub/station/mgexlog'}
+  - {name: epn   , address: 'ftp://epncb.oma.be/pub/station/log'}
+  - {name: apref , address: 'sftp://sftp.data.gnss.ga.gov.au/site-logs/text'}
+  - {name: sirgas, address: 'ftp://ftp.sirgas.org/pub/gps/DGF/station/log'}
+  - {name: ngs   , address: 'https://geodesy.noaa.gov/corsdata/station_log'}
+  - {name: nrcan , address: 'ftp://cacsa.nrcan.gc.ca/gps/station_logs'}
+  - {name: geonet, address: 'https://data.geonet.org.nz/gnss/sitelogs/logs'}
+  - {name: rgp   , address: 'ftp://rgpdata.ign.fr/pub/logsheet'}
+  - {name: gref  , address: 'ftp://igs-ftp.bkg.bund.de/GREF/station/log_9char'}
+  - {name: ucsd  , address: 'ftp://garner.ucsd.edu/pub/docs/station_logs'}
+  - {name: sonel , address: 'ftp://ftp.sonel.org/meta/gpslog'}
+
+nologs: [HAL2]
+
+errors:
+  - {ac: esa, sta: CHUR, type: receiver type      , from_ac: TPS NET-G3A         , from_log: SEPT POLARX5        , source: igs   }
+  - {ac: esa, sta: CKIS, type: receiver type      , from_ac: TRIMBLE NETR9       , from_log: SEPT POLARX5        , source: igs   }
+  - {ac: esa, sta: IQAL, type: receiver type      , from_ac: TPS NET-G3A         , from_log: SEPT POLARX5S       , source: igs   }
+  - {ac: esa, sta: MAJU, type: receiver type      , from_ac: SEPT POLARX4TR      , from_log: SEPT POLARX5        , source: igs   }
+  - {ac: esa, sta: MELI, type: receiver type      , from_ac: LEICA GR10          , from_log: LEICA GR50          , source: igs   }
+  - {ac: esa, sta: PIMO, type: receiver type      , from_ac: JAVAD TRE_G3TH DELTA, from_log: SEPT POLARX5        , source: igs   }
+  - {ac: esa, sta: XMIS, type: receiver type      , from_ac: TRIMBLE NETR9       , from_log: TRIMBLE ALLOY       , source: igs   }
+  - {ac: gfz, sta: MKEA, type: antenna orientation, from_ac: 0                   , from_log: 90                  , source: igs   }
+  - {ac: jgx, sta: NAUR, type: antenna orientation, from_ac: 0                   , from_log: -13                 , source: igs   }
+  - {ac: jgx, sta: SOLO, type: antenna orientation, from_ac: 0                   , from_log: 10                  , source: igs   }
+  - {ac: jgx, sta: WUTH, type: antenna orientation, from_ac: 0                   , from_log: 15                  , source: igs   }
+  - {ac: jpl, sta: BELE, type: receiver type      , from_ac: TRIMBLE NETR9       , from_log: TRIMBLE NETR8       , source: igs   }
+  - {ac: ngs, sta: DARW, type: antenna orientation, from_ac: 0                   , from_log: 5                   , source: igs   }
+  - {ac: ngs, sta: GANP, type: antenna orientation, from_ac: 0                   , from_log: -49                 , source: igs   }
+  - {ac: ngs, sta: HNPT, type: antenna orientation, from_ac: 0                   , from_log: 38                  , source: igs   }
+  - {ac: ngs, sta: MANA, type: antenna orientation, from_ac: 0                   , from_log: -11                 , source: igs   }
+  - {ac: ngs, sta: MKEA, type: antenna orientation, from_ac: 0                   , from_log: 90                  , source: igs   }
+  - {ac: ngs, sta: NAUR, type: antenna orientation, from_ac: 0                   , from_log: -13                 , source: igs   }
+  - {ac: ngs, sta: PTAG, type: antenna orientation, from_ac: 0                   , from_log: -1                  , source: igs   }
+  - {ac: ngs, sta: PTVL, type: antenna orientation, from_ac: 0                   , from_log: -80                 , source: igs   }
+  - {ac: ngs, sta: SHE2, type: antenna orientation, from_ac: 0                   , from_log: 43                  , source: igs   }
+  - {ac: ngs, sta: SOLO, type: antenna orientation, from_ac: 0                   , from_log: 10                  , source: igs   }
+  - {ac: sio, sta: BNOA, type: receiver type      , from_ac: TRIMBLE NETR9       , from_log: SEPT POLARX5        , source: igs   }
+  - {ac: sio, sta: BTNG, type: receiver type      , from_ac: TRIMBLE NETR9       , from_log: SEPT POLARX5        , source: igs   }
+  - {ac: sio, sta: NOT1, type: antenna type       , from_ac: LEIAR20         NONE, from_log: LEIAR20         LEIM, source: igs   }
+  - {ac: sio, sta: SFER, type: antenna orientation, from_ac: 0                   , from_log: -145                , source: igs   }
+  - {ac: sio, sta: TWTF, type: antenna type       , from_ac: ASH701945C_M    SCIS, from_log: SEPCHOKE_B3E6   SPKE, source: igs   }
+  - {ac: sio, sta: UZHL, type: antenna orientation, from_ac: 0                   , from_log: 180                 , source: igs   }
+  - {ac: sio, sta: WROC, type: receiver type      , from_ac: LEICA GR50          , from_log: LEICA GR30          , source: igs   }
+
+
+
+# 7) Missing IGS stations:
+# ------------------------
+# - missing = IGS stations with data available but not processed by any AC
+
+missing: [ANK2, ANTF, BAUT, BHPL, BHR3, BNEU, BRMG, BZR2, CPVG, DAE2, DEAR, EIL3, GOP7, JCTW, JPRE, KOS1, LAE1, LICC, MAR7, MFKG, MTV1, NABG, NKAY, OAFA, OAK1, PPPC, PRE3, QUI4, ROAG, SPK1, TEJA, TIT2, TKBG, TOAY, ULDI, USCL, USP1, VOIM, WDC6, WTZ3]
