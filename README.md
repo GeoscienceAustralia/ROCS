@@ -81,25 +81,6 @@ python3 -m rocs <WWWW> <D> <H> -c </path/to/your/config.yaml>
 
 where ```<WWWW>``` is GPS week, ```<D>``` is day of week (for the starting epoch of the combination), ```<H>``` is hour of the day (optional, only required for ultra-rapid combination), and ```</path/to/your/config.yaml>``` is the full path to your configuration YAML file.
 
-In the ```examples``` folder, there are two different scenario examples, one for final orbits and one for ultra-rapid orbits, along with the required input data, as well as the expected outputs in the ```products``` folder. You may want to use these examples to ensure you retrieve the expected outcomes.
-
-To run the example of a final orbit combination, run the below commands:
-
-```
-cd examples/final/
-python3 -m rocs 2332 4 -c ./inp/config_example_final.yaml
-```
-
-Similarly, to run the ultra-rapid example:
-
-```
-cd examples/ultra/
-python3 -m rocs 2332 4 18 -c ./inp/config_example_ultra.yaml
-```
-
-The combined orbits and summary files in the ```products``` directory of the above examples, should be identical to the pre-combined files in the ```products_expected``` directory.
-Note the above are just example scenarios, and that you may want to change the configurations based on your particular needs.
-
 Running the package with the ```--help``` argument will show a simple help option:
 
 ```
@@ -112,7 +93,7 @@ Robust combination of orbit solutions
 positional arguments:
   gpsweek               GPS week for processing
   dow                   Day of week for processing
-  hr                    Starting hour for ultr-rapid combination (default:
+  hr                    Starting hour for ultra-rapid combination (default:
                         None)
 
 optional arguments:
@@ -121,3 +102,26 @@ optional arguments:
                         YAML file containing configurations for combination
                         (default: None)
 ```
+
+## Example scenarios
+
+In the ```examples``` directory, there are two different scenario examples, one for a final orbit combination and one for an ultra-rapid orbit combination. Each of these directories include the required input files as well as the expected outputs in the ```products_expected``` directory. You may want to use these examples to ensure you retrieve the expected outcomes.
+
+For the final orbit combination example, run the below commands:
+
+```
+cd examples/final/
+python3 -m rocs 2332 4 -c ./inp/config_example_final.yaml
+```
+
+Similarly, for the ultra-rapid example, run:
+
+```
+cd examples/ultra/
+python3 -m rocs 2332 4 18 -c ./inp/config_example_ultra.yaml
+```
+
+After the program is completed for each of the above examples, the combined orbits and summary files are written into the ```products``` directory. These products should be identical to the pre-combined files in the ```products_expected``` directory.
+
+Note that the above are only example scenarios, and that you may want to change the configurations based on your particular needs.
+
