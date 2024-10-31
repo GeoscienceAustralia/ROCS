@@ -666,14 +666,14 @@ class OrbitPrep:
         weighted_centers.sort()
         unweighted_centers.sort()
 
-        print("weighted_sats: ", weighted_sats)
-        print("unweighted_sats: ", unweighted_sats)
+        logger.debug(f"weighted_sats: {weighted_sats}")
+        logger.debug(f"unweighted_sats: {unweighted_sats}")
 
-        print("weighted_centers: ", weighted_centers)
-        print("unweighted_centers: ", unweighted_centers)
+        logger.debug(f"weighted_centers: {weighted_centers}")
+        logger.debug(f"unweighted_centers: {unweighted_centers}")
 
-        print("weighted_cens_by_sys: ", weighted_cens_by_sys)
-        print("unweighted_cens_by_sys: ", unweighted_cens_by_sys)
+        logger.debug(f"weighted_cens_by_sys: {weighted_cens_by_sys}")
+        logger.debug(f"unweighted_cens_by_sys: {unweighted_cens_by_sys}")
 
         # Assign to attributes
         self.weighted_centers = weighted_centers
@@ -688,7 +688,7 @@ class OrbitPrep:
     def resample(self,sample_rate):
 
         """
-        Downsample sp3all attribute to the given sampling rate
+        Resample sp3all attribute to the given sampling rate
 
         Keyword arguments:
         sample_rate [int]: the sampling rate of the resampled sp3all in seconds
@@ -721,7 +721,7 @@ class OrbitPrep:
             sample_rate_orig = self.sp3all[acname]['header']['epoch_int']
             epochs_orig = list(self.sp3all[acname]['data']['epochs'])
 
-            # Check if we need to interpolate or to downsample
+            # Check if we need to interpolate or to down-sample
             if sample_rate < sample_rate_orig:
 
                 # if we know that center is unweighted, do not interpolate
@@ -1436,7 +1436,7 @@ class OrbitComb:
         satflags = {}
         ngood = {}
 
-        print("acnames : ", self.orbits.keys())
+        logger.debug(f"acnames :  {self.orbits.keys()}")
         # Loop through centers, and fill in orbflags and satflags
         for acname in self.orbits:
 
@@ -2569,7 +2569,9 @@ class OrbitComb:
             else:
                 raise ValueError(f"sat_rms_tst {sat_rms_tst} is not recognized!")
 
-            logger.info(f"thresh_sat_used: {thresh_sat_used}")
+            thresh_sat_used_print = {k: float(v) for k, v in thresh_sat_used.items()}
+            logger.info(f"thresh_sat_used: {thresh_sat_used_print}")
+
             # Look only into weighted centers used for combination (not excluded)
             sat_rms = {}
             for acname in self.weighted_centers:

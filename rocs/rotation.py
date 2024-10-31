@@ -49,7 +49,7 @@ class Rotation:
                       [-np.sin(theta),np.cos(theta),np.sin(theta)],
                       [np.sin(theta),-np.sin(theta),np.cos(theta)]])
 
-        # Based on the axis, replace spceific rows and columns
+        # Based on the axis, replace specific rows and columns
         if axis == 1:
             R[:,0] = 0.0
             R[0,:] = 0.0
@@ -94,7 +94,7 @@ class Rotation:
                        [-np.cos(theta),-np.sin(theta),np.cos(theta)],
                        [np.cos(theta),-np.cos(theta),-np.sin(theta)]])
 
-        # Based on the axis, replace spceific rows and columns
+        # Based on the axis, replace specific rows and columns
         if axis == 1:
             dR[:,0] = 0.0
             dR[0,:] = 0.0

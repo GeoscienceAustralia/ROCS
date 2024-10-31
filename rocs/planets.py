@@ -10,7 +10,7 @@ import rocs.coordinates as coordinates
 class AnalyticalPosition:
 
     """
-    Class for caculating the position of a planet based on analytical solution
+    Class for calculating the position of a planet based on analytical solution
     Valid between 1950 to 2050
 
     """
@@ -52,7 +52,7 @@ class AnalyticalPosition:
         References:
             - U.S. Nautical Almanac Office and U.S. Naval Observatory (2007)
               The astronomical almanac for the year 2007.
-            - Ferrao (2013) Positioing with combined GPS and GLONASS
+            - Ferrao (2013) Positioning with combined GPS and GLONASS
               observations, MSc thesis, Tecnico Lisbona.
             - Michalsky (1988) The Astronomical almanac's algorithm for
               approximate solar position (1950-2050). Solar Energy.
@@ -167,7 +167,7 @@ class AnalyticalPosition:
                                        + 0.000139589*np.cos(np.deg2rad(2*m)))
             l = np.array([item%360.0 for item in l])
 
-            # astronomical unit (average disctance between Earth and Sun
+            # astronomical unit (average distance between Earth and Sun
             #                    [meters])
             au = 149597870691.0
 

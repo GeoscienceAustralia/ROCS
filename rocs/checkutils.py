@@ -64,7 +64,7 @@ def check_array(coords,m,n=None):
     #
     # Input:
     # coords: supposed to be a 1- or 2-d array of real numbers
-    # if n is specifed:
+    # if n is specified:
     #       m,n: dimensions of coords
     # if n is not specified:
     #       m: length of coords
@@ -108,5 +108,3 @@ def check_array(coords,m,n=None):
                                  "numbers",stack_info=True)
                     raise TypeError("The input attribute cannot contain "
                                     "complex numbers")
-
-

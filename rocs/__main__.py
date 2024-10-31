@@ -17,7 +17,7 @@ def main():
     parser.add_argument('dow',metavar='dow',nargs=1,
                         help='Day of week for processing')
     parser.add_argument('hr',metavar='hr',nargs='?',
-                        help='Starting hour for ultr-rapid combination')
+                        help='Starting hour for ultra-rapid combination')
     parser.add_argument('-c','--config',nargs=1, dest = 'config_yaml',
                 help = ('YAML file containing configurations for combination '))
     args = parser.parse_args()
@@ -68,8 +68,5 @@ def main():
     logger.info(f"Process time spent: {pt1}")
 
 
-
 if __name__ == '__main__':
     main()
-
-

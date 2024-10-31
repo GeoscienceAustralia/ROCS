@@ -484,7 +484,7 @@ class Helmert:
         #
         # The above function needs to be minimized over a (i.e. the set of
         # k elements of vector a that minimize the above function)
-        # rho is the negative logarithm of the probablility density of
+        # rho is the negative logarithm of the probability density of
         # the distribution
         #
         # if we define the derivative of rho(z) as psi(z):
@@ -529,7 +529,7 @@ class Helmert:
         #
         # The minimization algorithm is based on:
         # Press WH, Teukolsky SA, Vetterling WT, Flannery BP (2007) Numerical
-        # recipes 3rd edition: the art of scientifc computing. Cambridge
+        # recipes 3rd edition: the art of scientific computing. Cambridge
         # University Press, Cambridge
         # The same reference contains other psi functions that could be used
         #

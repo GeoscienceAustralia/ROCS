@@ -218,7 +218,7 @@ class OrbitReport:
         weighted_cens = {}
         unweighted_cens = {}
 
-        # Add any extra indivdual satellites
+        # Add any extra individual satellites
         satflags = orbcmb.satflags
         for acname in orbcmb.weighted_sats:
 

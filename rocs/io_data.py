@@ -1610,11 +1610,15 @@ class Ref_sum:
 
         # Try to open the summary file
         try:
-            stream = open(self.rfsum_yaml,'r')
+            with open(self.rfsum_yaml, 'r') as stream:
+                rf_sum = yaml.load(stream, Loader=yaml.SafeLoader)
         except IOError:
+            logger.error(f"The SINEX combination summary file"
+                         f" is not accessible!",stack_info=True)
             raise IOError(f"File {self.rfsum_yaml} not accessible!")
-        else:
-            rf_sum = yaml.load(stream)
+        except yaml.YAMLError as e:
+            logger.error(f"Error loading YAML file {self.rfsum_yaml}: {e}", stack_info=True)
+            raise
 
         # Update the attribute
         self.rf_sum = rf_sum

@@ -13,7 +13,7 @@ class IAU:
     Class if IAU models
     Based on IERS conventions and SOFA package
     References:
-        International Astronomival Union  (2020): SOFA tools for Earth Attitude
+        International Astronomical Union  (2020): SOFA tools for Earth Attitude
         Petit and Luzum eds. (2010): IERS Conventions (2010) (IERS Technical
         Note; No. 36), International Earth Rotation and Reference Systems
         Service (IERS) Central Bureau
@@ -140,7 +140,7 @@ class IAU:
         theta = np.array(
                 [item - int(item/360.0)*360.0 for item in theta])
 
-        # Go epochwise (may need to optimize in future)
+        # Go epoch-wise (may need to optimize in future)
         precession = {}
         for c,epoch in enumerate(t):
 
@@ -293,8 +293,8 @@ class IAU:
         # create the array of arguments for input into sin/cos
         arg = np.matmul(nut[:,0:5],self.fundamental_args)
 
-        # create the array of sine and cosine coefficients (t should be in
-        # millenia instead of centuries)
+        # create the array of sine and cosine coefficients (should be in
+        # millennia instead of centuries)
         v = np.column_stack((np.ones(len(t)),t/10.0)).T
         #v = np.array([1,t/10.0])
         s = np.matmul(nut[:,5:7],v)
@@ -321,7 +321,7 @@ class IAU:
         eps0 = (84381.448 - 46.8150*t - 0.00059*t**2 + 0.001813*t**3)/3600.0
         eps0 = eps0*np.pi/180.0
 
-        # Go epochwise (may need to optimize in future)
+        # Go epoch-wise (may need to optimize in future)
         nutation = {}
         for c,epoch in enumerate(t):
 
@@ -482,7 +482,7 @@ class IAU:
         gast = gmst + eqeq94
 
         # Create the rotation matrix
-        # Go epochwise (may need to optimize in future)
+        # Go epoch-wise (may need to optimize in future)
         t = self.t
         gast_matrix = {}
         for c,epoch in enumerate(t):
@@ -538,7 +538,7 @@ class IAU:
 
         t = self.t
 
-        # Go epochwise (may need to optimize in future)
+        # Go epoch-wise (may need to optimize in future)
         polar = {}
         for c,epoch in enumerate(t):
 
@@ -576,7 +576,7 @@ class IAU:
             self.c2t_nopolar [dict] : celestial to terrestrial rotation matrix
                                       with no polar motion applied for each
                                       UTC time
-            self.c2t [dict] : full celestial to terretrial rotation matrix for
+            self.c2t [dict] : full celestial to terrestrial rotation matrix for
                               each UTC time
             plus all the attributes updated over the calling of models
 

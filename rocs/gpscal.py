@@ -160,7 +160,7 @@ class gpsCal:
         Input:  dto  - a datetime object
 
         Output: 'mp_ts' (float)
-                a matplot lib time stamp which is days from 0001-01-01
+                a matplotlib time stamp which is days from 0001-01-01
 
         """
 

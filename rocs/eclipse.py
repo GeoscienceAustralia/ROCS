@@ -1,4 +1,4 @@
-# Satellite eclipse calculations modeule
+# Satellite eclipse calculations module
 
 import numpy as np
 import numbers
@@ -9,7 +9,7 @@ import rocs.checkutils as checkutils
 class Eclipse:
 
     """
-    Class for eclipsing satellite caclulations
+    Class for eclipsing satellite calculations
 
     """
 
@@ -92,7 +92,7 @@ class Eclipse:
         # distance between the satellite and the Sun
         d_sun_sat = np.linalg.norm(r_sun_sat,axis=1)
 
-        # vector of eclsiping body -> satellite
+        # vector of eclipsing body -> satellite
         r_eclbody_sat = r_sat - r_eclbody
 
         # unit vector of Sun -> satellite
@@ -106,7 +106,7 @@ class Eclipse:
         # Sun --> satellite unit vector
         cr = np.cross(r_eclbody_sat,u_sun_sat)
 
-        # apparent seperation of the center of the Sun and the eclipsing body
+        # apparent separation of the center of the Sun and the eclipsing body
         sep = np.linalg.norm(cr,axis=1)/proj
 
         # apparent radii of the Sun and the eclipsing body as seen from
@@ -188,7 +188,7 @@ class Eclipse:
         # area of non-overlapped portion of the small disc
         area = area1 + area2 + area3
 
-        # redfine area1 and area2 based on which disk is the smaller one
+        # re-define area1 and area2 based on which disk is the smaller one
         area1 = np.pi*r_sun_apparent**2
 
         # eclipsing body is the smaller disk
@@ -210,7 +210,7 @@ class Eclipse:
     def get_ecl_times(self,time):
 
         """
-        Get the eclipse times in  afrom-to format
+        Get the eclipse times in from-to format
 
         Keyword arguments:
             time [list or numpy array] : array/list of datetime objects
@@ -221,7 +221,7 @@ class Eclipse:
             self.eclipsing [str] : flag for showing if the given satellite
                                    experiences any eclipsing by the given body
                                    'full'    : experiences full eclipse
-                                   'partial' : experiences only partial elipse
+                                   'partial' : experiences only partial eclipse
                                                (but not full eclipse)
                                    'none'    : does not experience any eclipse
             self.ecl_times [numpy array] : 3-column array containing eclipse
@@ -285,7 +285,3 @@ class Eclipse:
 
         self.ecl_times = ecl_times
         self.eclipsing = eclipsing
-
-
-
-

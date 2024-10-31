@@ -21,6 +21,3 @@ class MixedFormatter(logging.Formatter):
                     record.lineno, record.msg)
 
         return super(MixedFormatter , self).format(record)
-
-
-
