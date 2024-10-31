@@ -48,25 +48,25 @@ class Config:
         # Set the defaults
         config = {
                 'process': {
-                    'verbose': 'normal'
+                    'verbose': 'INFO'
                     },
                 'campaign': {
                     'author': '',
                     'contact': '',
                     'sol_id' : 'FIN',
-                    'camp_id': 'OPS',
+                    'camp_id': 'TST',
                     'cmb_name': 'IGS',
                     'vid': 0,
                     'cut_start': 0,
                     'cut_end': 0,
-                    'subm_rootdir': '/data/combination/test_data',
-                    'prod_rootdir': '/data/combination/test_results',
+                    'subm_rootdir': './ac_subm',
+                    'prod_rootdir': './products',
                     'sat_metadata_file': None,
                     'eop_format': None,
                     'eop_file': None,
-                    'rf_rootdir': '/data/repro3/products/sinex',
-                    'rf_name': 'IGS0R03SNX',
-                    'nanu_sumfile':'/data/repro3/metadata/nanus_sum_1999_2017',
+                    'rf_rootdir': './sinex',
+                    'rf_name': 'IGS0OPSSNX',
+                    'nanu_sumfile':'./metadata/nanus_sum.2024',
                     'ac_acronyms': {}
                     },
                 'orbits': {
@@ -108,11 +108,11 @@ class Config:
                         'max_iter' : 100
                         },
                     'sp3_header': {
-                        'coord_sys': 'IGb14',
+                        'coord_sys': 'IGS20',
                         'cmb_type': 'FINAL',
                         'clk_src': 'CMB',
-                        'antex': 'IGS14_2163',
-                        'oload': 'FES2004'
+                        'antex': 'IGS20',
+                        'oload': 'FES2014b'
                         }
                     },
                 'clocks': {
