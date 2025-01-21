@@ -34,7 +34,7 @@ def combine_orbits(gpsweek,dow,hr,config):
 
     # solution type identifier
     sol_id = config['campaign']['sol_id']
-    allowed_sol = ['ULT','RAP','FIN']
+    allowed_sol = ['ULT','RAP','FIN','MIX']
     if sol_id not in allowed_sol:
         logger.error("\nSolution type identifier must be one of"
                      f"{allowed_sol}\n",stack_info=True)
@@ -46,6 +46,8 @@ def combine_orbits(gpsweek,dow,hr,config):
         solution = 'rapid'
     elif sol_id == 'FIN':
         solution = 'final'
+    elif sol_id == 'MIX':
+        solution = 'mix'
 
     if solution == 'ultra-rapid':
         len_data = '02D'
@@ -55,7 +57,7 @@ def combine_orbits(gpsweek,dow,hr,config):
     # campaign/project specification
     camp_id = config['campaign']['camp_id']
     allowed_camp = ['DEM','MGX','OPS','TST']
-    if camp_id not in allowed_camp and cam_id[0:1] != 'R':
+    if camp_id not in allowed_camp and camp_id[0:1] != 'R':
         logger.error("\nCampaign specification must be one of"
                 f"{allowed_camp} or Rnn for Repro\n")
         raise ValueError(f"{camp_id} not recognized!")
@@ -228,13 +230,13 @@ def combine_orbits(gpsweek,dow,hr,config):
                             raise TypeError(f"{item} in "
                                 f"{ac_contribs_orbs[key][key1][key2]}"
                                 " is not a string!")
-                        if len(item) != 1:
-                            logger.error("\nConstellation codes must be "
-                                        " 1-character strings\n"
-                                        ,stack_info=True)
-                            raise ValueError(f"{item} in "
-                                        f"{ac_contribs_orbs[key][key1][key2]}"
-                                        " is not a 3-character string")
+                        #if len(item) != 1:
+                        #    logger.error("\nConstellation codes must be "
+                        #                " 1-character strings\n"
+                        #                ,stack_info=True)
+                        #    raise ValueError(f"{item} in "
+                        #                f"{ac_contribs_orbs[key][key1][key2]}"
+                        #                " is not a 3-character string")
 
     # orbit sampling
     orbit_sampling = config['orbits']['sampling']
@@ -505,7 +507,12 @@ def combine_orbits(gpsweek,dow,hr,config):
                                  - datetime.timedelta(seconds=cut_end))
 
     # Look into the submission directory for available submissions
-    sp3_subm_all = glob.glob(subm_weekdir+'/???????'+sol_id+'_'+str(year)
+    if sol_id != 'MIX':
+        sp3_subm_all = glob.glob(subm_weekdir+'/???????'+sol_id+'_'+str(year)
+                            +str(doy).zfill(3)+str(hr).zfill(2)+'00_'+len_data
+                            +'_???_ORB.SP3')
+    else:
+        sp3_subm_all = glob.glob(subm_weekdir+'/??????????_'+str(year)
                             +str(doy).zfill(3)+str(hr).zfill(2)+'00_'+len_data
                             +'_???_ORB.SP3')
 

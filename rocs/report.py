@@ -67,6 +67,8 @@ class OrbitReport:
             solution = 'rapid'
         elif sol_id == 'FIN':
             solution = 'final'
+        elif sol_id == 'MIX':
+            solution = 'mix'
 
         self.solution = solution
 
