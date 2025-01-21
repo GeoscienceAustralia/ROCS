@@ -45,7 +45,7 @@ The tree structure of the modules is as below:
 To install the software in Linux, simply navigate to where you would like to install the software on your machine, and clone the repository:
 
 ```
-git clone https://github.com/yourusername/rocs.git
+git clone https://github.com/GeoscienceAustralia/ROCS.git
 cd ROCS
 ```
 
