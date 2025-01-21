@@ -230,13 +230,6 @@ def combine_orbits(gpsweek,dow,hr,config):
                             raise TypeError(f"{item} in "
                                 f"{ac_contribs_orbs[key][key1][key2]}"
                                 " is not a string!")
-                        #if len(item) != 1:
-                        #    logger.error("\nConstellation codes must be "
-                        #                " 1-character strings\n"
-                        #                ,stack_info=True)
-                        #    raise ValueError(f"{item} in "
-                        #                f"{ac_contribs_orbs[key][key1][key2]}"
-                        #                " is not a 3-character string")
 
     # orbit sampling
     orbit_sampling = config['orbits']['sampling']
