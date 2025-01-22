@@ -630,14 +630,16 @@ def combine_orbits(gpsweek,dow,hr,config):
                             unweighted_cens_by_sys=orbs.unweighted_cens_by_sys,
                             weighted_sats=orbs.weighted_sats,
                             unweighted_sats=orbs.unweighted_sats,
-                            clocks=orbs.clocks)
+                            clocks=orbs.clocks,
+                            sat_metadata=sat_metadata)
     else:
         orbcmb = orbits.OrbitComb(orbits=orbs.orbits,epochs=orbs.epochs,
                             satinfo=orbs.satinfo,cenflags=orbs.cenflags,
                             weighted_cens_by_sys=orbs.weighted_cens_by_sys,
                             unweighted_cens_by_sys=orbs.unweighted_cens_by_sys,
                             weighted_sats=orbs.weighted_sats,
-                            unweighted_sats=orbs.unweighted_sats)
+                            unweighted_sats=orbs.unweighted_sats,
+                            sat_metadata=sat_metadata)
 
     logger.debug(f"orbits original: {orbcmb.orbits}")
 

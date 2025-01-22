@@ -1209,7 +1209,7 @@ class OrbitComb:
 
     """
 
-    def __init__(self,orbits,epochs,satinfo,cenflags,weighted_cens_by_sys,unweighted_cens_by_sys,weighted_sats,unweighted_sats,clocks=None):
+    def __init__(self,orbits,epochs,satinfo,cenflags,weighted_cens_by_sys,unweighted_cens_by_sys,weighted_sats,unweighted_sats,clocks=None,sat_metadata=None):
 
         """
         initialize OrbitComb class
@@ -1229,7 +1229,11 @@ class OrbitComb:
                              their standard deviations dircetly from sp3 files
                              of the individual ACs (all the same size: Number
                              of observations by 2 for clock,csdev)
-
+            sat_metadata
+                [class 'io_data.SatelliteMetadata'],
+                optional                            : an instance of
+                                                    input SatelliteMetadata
+                                                    class
         Updates:
             self.orbits [dict]
             self.epochs [array]
@@ -1391,6 +1395,18 @@ class OrbitComb:
         self.flags()
 
         self.clocks = clocks
+
+        # Check the given sat_metadata
+        if sat_metadata is not None:
+
+            if not isinstance(sat_metadata,SatelliteMetadata):
+                logger.error("\nsat_metadata must be an instance of "
+                             "SatelliteMetadata class\n")
+                raise TypeError("sat_metadata must an instance of "
+                                "SatelliteMetadata class")
+
+            # Assign the attribute
+            self.sat_metadata = sat_metadata
 
     def flags(self):
 
@@ -2140,6 +2156,9 @@ class OrbitComb:
             wcen = []
             rmscen = []
             sys = sat[0]
+            svn = sat[2]
+            sat_id = self.sat_metadata.get_sat_identifier(sys,svn)
+            blk = sat_id.block
             ng = 0
             if sys not in rms_sats_by_sys:
                 rms_sats_by_sys[sys] = []
@@ -2152,6 +2171,8 @@ class OrbitComb:
                         wcen.append(1/cen_abdev_wht[acname]**2)
                     elif self.cen_wht_method == 'by_constellation':
                         wcen.append(1/cen_abdev[acname,sys]**2)
+                    elif self.cen_wht_method == 'by_block':
+                        wcen.append(1/cen_abdev[acname,blk]**2)
                     elif self.cen_wht_method == 'by_sat':
                         wcen.append(1/cen_abdev[acname,sat]**2)
                     rmscen.append(cen_rms[acname,sat]**2)
@@ -2270,16 +2291,26 @@ class OrbitComb:
 
             m = np.shape(orbits_masked)[1]
             orbitmean = np.ma.array(np.full((m,3),np.nan))
+            sdev = np.ma.array(np.full((m,3),np.nan))
             for c,row in enumerate(self.satinfo):
                 wcen = []
                 block = row[3]
+                n = 0
                 for acname in self.weighted_centers:
                     if (acname,block) in self.cen_weights.keys():
                         wcen.append(self.cen_weights[acname,block])
+                        n += 1
                     else:
                         wcen.append(0)
                 orbitmean[c] = np.ma.average(
                                         orbits_masked[:,c],axis=0,weights=wcen)
+                if n==1:
+                    for j in range(0,3):
+                        sdev[c,j] = 0
+                else:
+                    sdev[c] = np.sqrt(
+                            np.ma.average((orbits_masked[:,c]-orbitmean[c])**2,
+                            axis=0,weights=wcen)/(n-1))
 
         elif self.cen_wht_method == 'by_sat':
 
