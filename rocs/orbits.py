@@ -2196,7 +2196,8 @@ class OrbitComb:
                 sat_accuracy[sat] = 0
             else:
                 sat_rms[sat] = np.sqrt(
-                    np.ma.average(rmscen,weights=wcen)/(len(rmscen)-1))
+                    np.ma.average(np.ma.masked_invalid(rmscen),
+                                  weights=np.ma.masked_invalid(wcen))/(len(rmscen)-1))
                 sat_accuracy[sat] = round(np.log2(1000.0*sat_rms[sat]))
 
         sat_rms_mean = np.sqrt(np.mean(rms_all_sats))
