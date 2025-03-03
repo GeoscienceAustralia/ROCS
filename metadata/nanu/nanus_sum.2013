@@ -1,0 +1,121 @@
+
++nanu_sum
+*
+*   NANU TYPE       PRN REF_NANU  EPO_BEG        EPO_END         EPO_INC
+*-------------------------------------------------------------------------------------- 
+ 2013001 FCSTDV       5        -  2013_010_1230  2013_011_0030   2013.01.03 (003) 18:02
+ 2013002 FCSTDV      20        -  2013_016_2015  2013_017_0815   2013.01.10 (010) 18:02
+ 2013003 FCSTSUMM    05  2013001  2013_010_1239  2013_010_1949   2013.01.11 (011) 00:02
+ 2013004 FCSTSUMM    20  2013002  2013_016_2054  2013_017_0217   2013.01.17 (017) 06:02
+ 2013005 FCSTDV      31        -  2013_023_1515  2013_024_0315   2013.01.18 (018) 00:02
+ 2013006 FCSTMX      26        -  2013_022_1600  2013_023_0400   2013.01.18 (018) 00:02
+ 2013007 FCSTSUMM    26  2013006  2013_022_1621  2013_022_1727   2013.01.22 (022) 18:02
+ 2013008 FCSTSUMM    31  2013005  2013_023_1537  2013_023_2242   2013.01.24 (024) 00:02
+ 2013009 FCSTDV      17        -  2013_030_2315  2013_031_1115   2013.01.26 (026) 00:02
+ 2013010 FCSTCANC    17  2013009  2013_031_0100              -   2013.01.31 (031) 06:02
+ 2013011 FCSTDV      17        -  2013_037_0800  2013_037_2000   2013.02.02 (033) 00:02
+ 2013012 FCSTMX       1        -  2013_036_1400  2013_037_0200   2013.02.05 (036) 00:02
+ 2013013 UNUSUFN     30        -  2013_036_2128              -   2013.02.06 (037) 00:02
+ 2013014 FCSTSUMM    01  2013012  2013_036_1444  2013_036_2221   2013.02.06 (037) 00:02
+ 2013015 UNUSABLE    30  2013013  2013_036_2128  2013_037_0013   2013.02.06 (037) 06:02
+ 2013016 FCSTSUMM    17  2013011  2013_037_0902  2013_037_1415   2013.02.06 (037) 18:02
+ 2013017 FCSTDV      10        -  2013_044_1155  2013_044_2355   2013.02.09 (040) 00:02
+ 2013019 FCSTDV      13        -  2013_065_1930  2013_066_0730   2013.03.01 (060) 00:02
+ 2013020 FCSTSUMM    13  2013019  2013_065_1952  2013_066_0117   2013.03.07 (066) 06:02
+ 2013022 UNUSUFN     30        -  2013_087_1029              -   2013.03.28 (087) 12:02
+ 2013023 FCSTDV      18        -  2013_094_1115  2013_094_2315   2013.03.29 (088) 18:02
+ 2013024 FCSTSUMM    18  2013023  2013_094_1153  2013_094_1722   2013.04.05 (095) 00:02
+ 2013025 FCSTDV       8        -  2013_101_2330  2013_102_1130   2013.04.05 (095) 18:02
+ 2013026 FCSTSUMM    08  2013025  2013_101_2342  2013_102_0628   2013.04.12 (102) 12:02
+ 2013027 DECOM       30  2013022  2013_087_1029              -   2013.05.02 (122) 00:02
+ 2013028 FCSTDV      25        -  2013_130_0330  2013_130_1530   2013.05.03 (123) 18:02
+ 2013030 FCSTSUMM    25  2013028  2013_130_0357  2013_130_0849   2013.05.10 (130) 12:02
+ 2013031 LAUNCH      27        -              -              -   2013.05.16 (136) 00:02
+ 2013032 FCSTDV       4        -  2013_163_1430  2013_164_0230   2013.06.06 (157) 00:02
+ 2013033 FCSTSUMM    04  2013032  2013_163_1447  2013_163_1948   2013.06.13 (164) 00:02
+ 2013035 USABINIT    27        -  2013_172_1958              -   2013.06.22 (173) 00:02
+ 2013037 UNUSABLE     3  2013036  2013_181_1634  2013_181_1713   2013.06.30 (181) 18:02
+ 2013039 FCSTDV      26        -  2013_192_1600  2013_193_0400   2013.07.08 (189) 18:02
+ 2013040 FCSTSUMM    26  2013039  2013_192_1612  2013_192_2227   2013.07.12 (193) 00:02
+ 2013041 FCSTDV      12        -  2013_205_1715  2013_206_0515   2013.07.19 (200) 18:02
+ 2013042 FCSTSUMM    12  2013041  2013_205_1749  2013_206_0011   2013.07.25 (206) 06:02
+ 2013043 FCSTDV       9        -  2013_225_0715  2013_226_0715   2013.08.09 (221) 00:02
+ 2013044 FCSTMX       6        -  2013_225_1330  2013_226_0130   2013.08.09 (221) 00:02
+ 2013045 FCSTSUMM    09  2013043  2013_225_0737  2013_225_1638   2013.08.13 (225) 18:02
+ 2013046 FCSTSUMM    06  2013044  2013_225_1336  2013_225_1848   2013.08.14 (226) 00:02
+ 2013047 FCSTDV      15        -  2013_232_1230  2013_233_0030   2013.08.16 (228) 00:02
+ 2013048 FCSTSUMM    15  2013047  2013_232_1301  2013_232_1942   2013.08.21 (233) 06:02
+ 2013050 FCSTDV      14        -  2013_241_0600  2013_241_1800   2013.08.23 (235) 00:02
+ 2013052 FCSTMX       4        -  2013_246_1700  2013_247_0500   2013.08.30 (242) 12:02
+ 2013053 FCSTSUMM    04  2013052  2013_246_1717  2013_247_0029   2013.09.04 (247) 12:02
+ 2013055 UNUSUFN     10        -  2013_272_0726              -   2013.09.29 (272) 12:02
+ 2013056 UNUSABLE    10  2013055  2013_272_0726  2013_272_1943   2013.09.30 (273) 00:02
+ 2013059 FCSTMX      26        -  2013_302_1800  2013_303_0600   2013.10.24 (297) 18:02
+ 2013060 FCSTSUMM    26  2013059  2013_302_1838  2013_302_2031   2013.10.30 (303) 00:02
+ 2013061 UNUSUFN      2        -  2013_307_1704              -   2013.11.04 (308) 00:02
+ 2013063 FCSTMX      27        -  2013_322_2100  2013_323_0900   2013.11.14 (318) 18:02
+ 2013064 FCSTDV      29        -  2013_323_1215  2013_324_0015   2013.11.14 (318) 18:02
+ 2013065 FCSTSUMM    27  2013063  2013_322_2137  2013_323_0118   2013.11.19 (323) 06:02
+ 2013066 FCSTSUMM    29  2013064  2013_323_1256  2013_323_1757   2013.11.20 (324) 00:02
+ 2013067 FCSTMX       1        -  2013_329_1800  2013_330_0600   2013.11.21 (325) 00:02
+ 2013068 UNUSUFN     32        -  2013_327_0847              -   2013.11.24 (328) 00:02
+ 2013069 UNUSABLE    32  2013068  2013_327_0847  2013_327_0919   2013.11.24 (328) 00:02
+ 2013070 FCSTSUMM    01  2013067  2013_329_1834  2013_330_0142   2013.11.26 (330) 06:02
+ 2013071 FCSTMX      24        -  2013_336_2230  2013_337_1030   2013.11.27 (331) 18:02
+ 2013072 FCSTMX      25        -  2013_339_0130  2013_339_1330   2013.11.27 (331) 18:02
+ 2013073 FCSTSUMM    24  2013071  2013_336_2359  2013_337_0329   2013.12.03 (337) 06:02
+ 2013075 FCSTSUMM    25  2013072  2013_339_0150  2013_339_0816   2013.12.05 (339) 12:02
+ 2013076 FCSTMX      01        -  2013_346_1400  2013_347_1400   2013.12.07 (341) 00:02
+ 2013077 FCSTSUMM    01  2013076  2013_346_1422  2013_346_2013   2013.12.13 (347) 00:02
+ 2013078 FCSTMX      01        -  2013_352_1700  2013_354_1700   2013.12.14 (348) 06:02
+ 2013079 FCSTCANC    01  2013078  2013_352_1700              -   2013.12.19 (353) 00:02
+*-------------------------------------------------------------------------------------- 
+*   NANU TYPE       PRN REF_NANU  EPO_BEG        EPO_END         EPO_INC
+*
+-nanu_sum
+
+
+***************************************************************************************
+NANU Types
+***************************************************************************************
+
+Forecast Outages
+---------------------------------------------------------------------------------------
+FCSTDV,       Forecast Delta-V - gives scheduled outage times for Delta-V maneuvers.
+              The satellite is moved during this maintenance and the user may be 
+              required to download a new almanac.
+FCSTMX,       Forecast Maintenance - gives scheduled outage times for Ion Pump 
+              Operations or software tests.
+FCSTEXTD,     Forecast Extension - extends the scheduled outage time
+              "Until Further Notice"; references the original NANU.
+FCSTSUMM,     Forecast Summary - gives the exact outage times for the scheduled
+              outage, including the FCSTEXTD; sent after the maintenance is complete
+              and the satellite is set healthy to users; references the original NANU.
+FCSTCANC,     Forecast Cancellation - cancels a scheduled outage; new maintenance time
+              not yet determined; references the original NANU.
+FCSTRESCD,    Forecast Rescheduled - reschedules a scheduled outage; references the
+              original NANU.
+
+
+Unscheduled Outages
+---------------------------------------------------------------------------------------
+UNUSUFN,      Unusable Until Further Notice - notifies users that a satellite will be
+              Unusable to all users until further notice.
+UNUSABLE,     UNUSABLE with a reference NANU - closes out an UNUSUFN NANU and gives the
+              exact outage times for the outage; references the UNUSUFN NANU.
+UNUNOREF      UNUSABLE with no reference NANU - gives times for outages that were
+              resolved before a UNUSUFN NANU could be sent.
+
+
+Other
+---------------------------------------------------------------------------------------
+USABINIT      Initially Usable, notifies users that a satellite is set healthy for the
+              first time.
+LEAPSEC       Leap Second, is used to notify users of an impending leap second and all
+              data after the subject line is free flowing text.
+GENERAL       informs the user of general GPS information and is written using free
+              flowing text.
+LAUNCH        is used to notify users of an impending GPS launch using a format similar
+              to the GENERAL NANU format.
+
+

@@ -1,0 +1,116 @@
+
++nanu_sum
+*
+*   NANU TYPE       PRN REF_NANU  EPO_BEG        EPO_END         EPO_INC
+*-------------------------------------------------------------------------------------- 
+ 2021002 FCSTSUMM    15  2021001  2021_021_1009  2021_021_1610   2021.10.01 (274) 17:24
+ 2021003 FCSTDV      08        -  2021_035_1930  2021_036_0730   2021.10.01 (274) 17:24
+ 2021004 FCSTSUMM    08  2021003  2021_035_1951  2021_036_0114   2021.10.01 (274) 17:24
+ 2021005 FCSTDV      12        -  2021_049_2105  2021_050_0905   2021.10.01 (274) 17:24
+ 2021006 FCSTDV      04        -  2021_056_1200  2021_057_0000   2021.10.01 (274) 17:24
+ 2021007 FCSTSUMM    12  2021005  2021_049_2136  2021_050_0316   2021.10.01 (274) 17:24
+ 2021008 FCSTRESCD   04  2021006  2021_061_1200  2021_062_0000   2021.10.01 (274) 17:24
+ 2021009 FCSTMX      18        -  2021_057_1600  2021_058_0400   2021.10.01 (274) 17:24
+ 2021010 FCSTSUMM    18  2021009  2021_057_1736  2021_057_1917   2021.10.01 (274) 17:24
+ 2021011 FCSTSUMM    04  2021008  2021_061_1217  2021_061_1737   2021.10.01 (274) 17:24
+ 2021012 FCSTDV      20        -  2021_071_0415  2021_071_1615   2021.10.01 (274) 17:24
+ 2021013 FCSTDV      24        -  2021_077_1815  2021_078_0615   2021.10.01 (274) 17:24
+ 2021014 FCSTSUMM    20  2021012  2021_071_0454  2021_071_1125   2021.10.01 (274) 17:24
+ 2021015 FCSTSUMM    24  2021013  2021_077_1834  2021_078_0150   2021.10.01 (274) 17:24
+ 2021016 FCSTDV      09        -  2021_091_1135  2021_092_0035   2021.10.01 (274) 17:24
+ 2021017 FCSTDV      28        -  2021_098_1645  2021_099_0445   2021.10.01 (274) 17:24
+ 2021018 FCSTSUMM    09  2021016  2021_091_1143  2021_091_1745   2021.10.01 (274) 17:24
+ 2021019 FCSTMX      24        -  2021_102_1545  2021_116_1545   2021.10.01 (274) 17:24
+ 2021020 FCSTSUMM    28  2021017  2021_098_1701  2021_098_2300   2021.10.01 (274) 17:24
+ 2021021 FCSTDV      07        -  2021_112_1130  2021_112_2330   2021.10.01 (274) 17:24
+ 2021022 FCSTSUMM    24  2021019  2021_102_1613  2021_112_1535   2021.10.01 (274) 17:24
+ 2021023 FCSTSUMM    07  2021021  2021_112_1217  2021_112_2005   2021.10.01 (274) 17:24
+ 2021024 FCSTDV      26        -  2021_126_0240  2021_126_1440   2021.10.01 (274) 17:24
+ 2021025 UNUNOREF    29        -  2021_097_0009  2021_097_0014   2021.10.01 (274) 17:24
+ 2021026 FCSTSUMM    26  2021024  2021_126_0253  2021_126_0834   2021.10.01 (274) 17:24
+ 2021027 FCSTDV      28        -  2021_140_1233  2021_141_0033   2021.10.01 (274) 17:24
+ 2021028 FCSTDV      22        -  2021_148_0045  2021_148_1245   2021.10.01 (274) 17:24
+ 2021029 FCSTSUMM    28  2021027  2021_140_1254  2021_140_2047   2021.10.01 (274) 17:24
+ 2021030 FCSTSUMM    22  2021028  2021_148_0059  2021_148_0700   2021.10.01 (274) 17:24
+ 2021031 FCSTDV      31        -  2021_161_1945  2021_162_0745   2021.10.01 (274) 17:24
+ 2021032 FCSTSUMM    31  2021031  2021_161_2013  2021_162_0352   2021.10.01 (274) 17:24
+ 2021033 FCSTUUFN    28        -  2021_172_1700              -   2021.10.01 (274) 17:24
+ 2021034 LAUNCH      11        -              -              -   2021.10.01 (274) 17:24
+ 2021035 DECOM       28  2021033  2021_174_2200              -   2021.10.01 (274) 17:24
+ 2021036 FCSTDV      06        -  2021_190_0545  2021_190_1745   2021.10.01 (274) 17:24
+ 2021037 FCSTDV      20        -  2021_196_1515  2021_197_0315   2021.10.01 (274) 17:24
+ 2021038 FCSTSUMM    06  2021036  2021_190_0610  2021_190_1327   2021.10.01 (274) 17:24
+ 2021039 FCSTSUMM    20  2021037  2021_196_1525  2021_196_2151   2021.10.01 (274) 17:24
+ 2021040 FCSTDV      05        -  2021_203_1630  2021_204_0430   2021.10.01 (274) 17:24
+ 2021041 FCSTDV      14        -  2021_211_0615  2021_211_1815   2021.10.01 (274) 17:24
+ 2021042 FCSTSUMM    05  2021040  2021_203_1631  2021_203_2246   2021.10.01 (274) 17:24
+ 2021043 FCSTDV      03        -  2021_218_0145  2021_218_1345   2021.10.01 (274) 17:24
+ 2021044 FCSTSUMM    14  2021041  2021_211_0635  2021_211_1220   2021.10.01 (274) 17:24
+ 2021045 FCSTSUMM    03  2021043  2021_218_0200  2021_218_0829   2021.10.01 (274) 17:24
+ 2021046 UNUSUFN     04        -  2021_231_0400              -   2021.10.01 (274) 17:24
+ 2021047 UNUSABLE    04  2021046  2021_231_0400  2021_231_0917   2021.10.01 (274) 17:24
+ 2021048 FCSTDV      27        -  2021_245_1030  2021_245_2230   2021.10.01 (274) 17:24
+ 2021049 FCSTSUMM    27  2021048  2021_245_1047  2021_245_1802   2021.10.01 (274) 17:24
+ 2021050 FCSTDV      25        -  2021_267_0315  2021_267_1515   2021.10.01 (274) 17:24
+ 2021051 FCSTSUMM    25  2021050  2021_267_0342  2021_267_0856   2021.10.01 (274) 17:24
+ 2021052 FCSTMX      03        -  2021_300_1500  2021_314_1500   2021.10.01 (274) 17:24
+ 2021053 FCSTDV      16        -  2021_319_2015  2021_320_0815   2021.10.01 (274) 17:24
+ 2021054 FCSTSUMM    03  2021052  2021_300_1635  2021_312_2124   2021.10.01 (274) 17:24
+ 2021055 FCSTSUMM    16  2021053  2021_319_2053  2021_320_0146   2021.10.01 (274) 17:24
+ 2021056 FCSTDV      29        -  2021_337_0300  2021_337_1500   2021.10.01 (274) 17:24
+ 2021057 FCSTDV      02        -  2021_343_1245  2021_344_0045   2021.10.01 (274) 17:24
+ 2021058 UNUSUFN     22        -  2021_336_1637              -   2021.10.01 (274) 17:24
+ 2021059 FCSTSUMM    29  2021056  2021_337_0358  2021_337_0931   2021.10.01 (274) 17:24
+ 2021060 FCSTSUMM    02  2021057  2021_343_1304  2021_343_1934   2021.10.01 (274) 17:24
+ 2021061 FCSTMX      27        -  2021_349_1900  2021_363_1900   2021.10.01 (274) 17:24
+ 2021062 FCSTSUMM    27  2021061  2021_349_1925  2021_361_1828   2021.10.01 (274) 17:24
+*-------------------------------------------------------------------------------------- 
+*   NANU TYPE       PRN REF_NANU  EPO_BEG        EPO_END         EPO_INC
+*
+-nanu_sum
+
+
+***************************************************************************************
+NANU Types
+***************************************************************************************
+
+Forecast Outages
+---------------------------------------------------------------------------------------
+FCSTDV,       Forecast Delta-V - gives scheduled outage times for Delta-V maneuvers.
+              The satellite is moved during this maintenance and the user may be 
+              required to download a new almanac.
+FCSTMX,       Forecast Maintenance - gives scheduled outage times for Ion Pump 
+              Operations or software tests.
+FCSTEXTD,     Forecast Extension - extends the scheduled outage time
+              "Until Further Notice"; references the original NANU.
+FCSTSUMM,     Forecast Summary - gives the exact outage times for the scheduled
+              outage, including the FCSTEXTD; sent after the maintenance is complete
+              and the satellite is set healthy to users; references the original NANU.
+FCSTCANC,     Forecast Cancellation - cancels a scheduled outage; new maintenance time
+              not yet determined; references the original NANU.
+FCSTRESCD,    Forecast Rescheduled - reschedules a scheduled outage; references the
+              original NANU.
+
+
+Unscheduled Outages
+---------------------------------------------------------------------------------------
+UNUSUFN,      Unusable Until Further Notice - notifies users that a satellite will be
+              Unusable to all users until further notice.
+UNUSABLE,     UNUSABLE with a reference NANU - closes out an UNUSUFN NANU and gives the
+              exact outage times for the outage; references the UNUSUFN NANU.
+UNUNOREF      UNUSABLE with no reference NANU - gives times for outages that were
+              resolved before a UNUSUFN NANU could be sent.
+
+
+Other
+---------------------------------------------------------------------------------------
+USABINIT      Initially Usable, notifies users that a satellite is set healthy for the
+              first time.
+LEAPSEC       Leap Second, is used to notify users of an impending leap second and all
+              data after the subject line is free flowing text.
+GENERAL       informs the user of general GPS information and is written using free
+              flowing text.
+LAUNCH        is used to notify users of an impending GPS launch using a format similar
+              to the GENERAL NANU format.
+
+
