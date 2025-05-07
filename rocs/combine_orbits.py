@@ -86,19 +86,6 @@ def combine_orbits(gpsweek,dow,hr,config):
         raise ValueError(f"Combination version identifier {vid} is not in the "
                          f"range 0-9!")
 
-    # information on whether to cut solutions at the start or end
-    cut_start = config['campaign']['cut_start']
-    if not isinstance(cut_start,int):
-        logger.error("\ncut_start must be an integer\n",
-                        stack_info=True)
-        raise TypeError(f"{cut_start} is of type {type(cut_start)}!")
-
-    cut_end = config['campaign']['cut_end']
-    if not isinstance(cut_end,int):
-        logger.error("\ncut_end must be an integer\n",
-                        stack_info=True)
-        raise TypeError(f"{cut_end} is of type {type(cut_end)}!")
-
     # submissions root directory
     subm_rootdir = config['campaign']['subm_rootdir']
     if not isinstance(subm_rootdir,str):
@@ -236,6 +223,19 @@ def combine_orbits(gpsweek,dow,hr,config):
     if orbit_sampling is not None and not isinstance(orbit_sampling,int):
         logger.error("\nOrbit sampling must be an integer\n", stack_info=True)
         raise TypeError(f"Orbit sampling {orbit_sampling} is not an integer!")
+
+    # information on whether to cut solutions at the start or end
+    cut_start = config['orbits']['cut_start']
+    if not isinstance(cut_start,int):
+        logger.error("\ncut_start must be an integer\n",
+                        stack_info=True)
+        raise TypeError(f"{cut_start} is of type {type(cut_start)}!")
+
+    cut_end = config['orbits']['cut_end']
+    if not isinstance(cut_end,int):
+        logger.error("\ncut_end must be an integer\n",
+                        stack_info=True)
+        raise TypeError(f"{cut_end} is of type {type(cut_end)}!")
 
     # center weighting method
     # In case of weighting by constellation/block/sat, check if metadata file is
@@ -495,9 +495,13 @@ def combine_orbits(gpsweek,dow,hr,config):
         end_epoch = (datetime.datetime(year,month,dom,23,59,59)
                     - datetime.timedelta(seconds=cut_end))
     else:
-        end_epoch = (start_epoch + datetime.timedelta(days=2)
-                                 - datetime.timedelta(seconds=1)
-                                 - datetime.timedelta(seconds=cut_end))
+        end_epoch = (datetime.datetime(year,month,dom,hr,0,0)
+                     + datetime.timedelta(days=2)
+                     - datetime.timedelta(seconds=1)
+                     - datetime.timedelta(seconds=cut_end))
+        
+    logger.debug(f"\ncut_start, cut_end {cut_start} {cut_end}")
+    logger.debug(f"\nstart_epoch, end_epoch {start_epoch} {end_epoch}")
 
     # Look into the submission directory for available submissions
     if sol_id != 'MIX':
