@@ -57,8 +57,6 @@ class Config:
                     'camp_id': 'TST',
                     'cmb_name': 'IGS',
                     'vid': 0,
-                    'cut_start': 0,
-                    'cut_end': 0,
                     'subm_rootdir': './ac_subm',
                     'prod_rootdir': './products',
                     'sat_metadata_file': None,
@@ -88,6 +86,8 @@ class Config:
                             }
                         },
                     'sampling': None,
+                    'cut_start': 0,
+                    'cut_end': 0,
                     'cen_wht_method': 'global',
                     'sat_wht_method': 'RMS_L1',
                     'rf_align': [False,False,False],
