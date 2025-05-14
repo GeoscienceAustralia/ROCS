@@ -109,6 +109,7 @@ class OrbitReport:
         self.year = year
         self.doy = doy
         self.hr = hr
+        self.minute = minute
 
         prod_weekdir = prod_rootdir + '/w' + str(gpsweek).zfill(4)
 
@@ -148,6 +149,7 @@ class OrbitReport:
             self.year_end = year_end
             self.doy_end = doy_end
             self.hr_end = hr_end
+            self.minute_end = minute_end
 
         # create list of satellite systems, blocks, satellites
         systems = []
@@ -416,18 +418,18 @@ class OrbitReport:
                     + " doy " + str(self.doy).zfill(3) + ") ")
 
         if self.solution == 'ultra-rapid':
-            header3 = ("hour " + str(self.hr).zfill(2))
+            header3 = (str(self.hr).zfill(2) + ":" + str(self.minute).zfill(2))
             header4 = (" to week " + str(self.wwww_end).zfill(4) + " day "
-                        + str(self.dow_end).zfill(2) + " (year "
+                        + str(self.dow_end) + " (year "
                         + str(self.year_end) + " doy "
                         + str(self.doy_end).zfill(3) + ") ")
-            header5 = ("hour "+ str(self.hr).zfill(2))
+            header5 = (str(self.hr_end).zfill(2) + ":" + str(self.minute_end).zfill(2))
             header6 = ("The first 24 hours are observed, but the last 24 hours are "
                         "predicted orbits")
 
         if self.solution == 'ultra-rapid':
-            lenmax = max(len(header1),len(header2),len(header3),len(header4),
-                            len(header5),len(header6))
+            lenmax = max(len(header1),(len(header2)+len(header3)+len(header4)
+                                       +len(header5)),len(header6))
             sumfull.write(f"{'-'*lenmax}\n")
             sumfull.write(f"{header1}\n")
             sumfull.write(f"{header2}")
